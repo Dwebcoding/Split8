@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progetti Studio | SPLit8</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+  <canvas id="skyline-canvas"></canvas>
+  
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="logo">SPLit8</a>
+      <ul class="nav-menu">
+        <li><a href="/account">Account</a></li>
+        <li><a href="#" onclick="SPLit8.auth.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero hero--compact">
+    <div class="container">
+      <h1>Progetti Studio</h1>
+    </div>
+  </section>
+
+  <main class="container" style="margin: 4rem auto; max-width: 1400px;">
+    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+      
+      <aside class="dashboard-sidebar">
+        <nav class="dashboard-nav">
+          <a href="/pages/dashboard/studio/index.html">📊 Dashboard</a>
+          <a href="/pages/dashboard/studio/profile.html">🏢 Profilo Studio</a>
+          <a href="/pages/dashboard/studio/team.html">👥 Team</a>
+          <a href="/pages/dashboard/studio/projects.html" class="active">📁 Progetti</a>
+          <a href="/pages/dashboard/studio/quotes.html">💰 Preventivi</a>
+          <a href="/pages/dashboard/studio/partners.html">🤝 Partner</a>
+        </nav>
+      </aside>
+
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+          <div style="display: flex; gap: 1rem;">
+            <button class="btn--primary active">Tutti (12)</button>
+            <button class="btn--outline">In Corso (7)</button>
+            <button class="btn--outline">Completati (5)</button>
+          </div>
+          <button class="btn--primary">+ Nuovo Progetto</button>
+        </div>
+
+        <div style="display: grid; gap: 1.5rem;">
+          
+          <div class="card">
+            <h3 style="margin: 0 0 1rem 0;">Residenza Moderna Milano</h3>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1rem;">
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Cliente</p>
+                <p style="margin: 0.25rem 0 0 0;">Famiglia Rossi</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Budget</p>
+                <p style="margin: 0.25rem 0 0 0;">€180.000</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Team Assegnato</p>
+                <p style="margin: 0.25rem 0 0 0;">3 membri</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Scadenza</p>
+                <p style="margin: 0.25rem 0 0 0;">30 Giu 2025</p>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.85rem;">
+                <span>Progresso</span>
+                <span>65%</span>
+              </div>
+              <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                <div style="width: 65%; height: 100%; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);"></div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <span class="badge" style="padding: 0.5rem 1rem; background: rgba(46,213,115,0.2); color: #2ed573; border-radius: 20px;">In Corso</span>
+              <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Dettagli</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 style="margin: 0 0 1rem 0;">Uffici Commerciali Torino</h3>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1rem;">
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Cliente</p>
+                <p style="margin: 0.25rem 0 0 0;">Studio XYZ</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Budget</p>
+                <p style="margin: 0.25rem 0 0 0;">€320.000</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Team Assegnato</p>
+                <p style="margin: 0.25rem 0 0 0;">5 membri</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Scadenza</p>
+                <p style="margin: 0.25rem 0 0 0;">15 Set 2025</p>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.85rem;">
+                <span>Progresso</span>
+                <span>35%</span>
+              </div>
+              <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                <div style="width: 35%; height: 100%; background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);"></div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <span class="badge" style="padding: 0.5rem 1rem; background: rgba(255,159,67,0.2); color: #ff9f43; border-radius: 20px;">Progettazione</span>
+              <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Dettagli</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 style="margin: 0 0 1rem 0;">Ristrutturazione Villa Lago di Como</h3>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1rem;">
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Cliente</p>
+                <p style="margin: 0.25rem 0 0 0;">Sig. Moretti</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Budget</p>
+                <p style="margin: 0.25rem 0 0 0;">€450.000</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Team Assegnato</p>
+                <p style="margin: 0.25rem 0 0 0;">4 membri</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Completato</p>
+                <p style="margin: 0.25rem 0 0 0;">15 Mar 2025</p>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.85rem;">
+                <span>Progresso</span>
+                <span>100%</span>
+              </div>
+              <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                <div style="width: 100%; height: 100%; background: linear-gradient(90deg, #2ed573 0%, #12c962 100%);"></div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <span class="badge" style="padding: 0.5rem 1rem; background: rgba(46,213,115,0.2); color: #2ed573; border-radius: 20px;">Completato</span>
+              <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Dettagli</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+
+  <script src="../../../js/router.js"></script>
+  <script src="../../../js/skyline.js"></script>
+  <script src="../../../js/api.js"></script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

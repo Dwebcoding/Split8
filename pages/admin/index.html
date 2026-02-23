@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | SPLit8</title>
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+  <canvas id="skyline-canvas"></canvas>
+  
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="logo">SPLit8 Admin</a>
+      <ul class="nav-menu">
+        <li><a href="/account">Account</a></li>
+        <li><a href="#" onclick="SPLit8.auth.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero hero--compact">
+    <div class="container">
+      <h1>Admin Dashboard</h1>
+      <p>Gestione Piattaforma SPLit8</p>
+    </div>
+  </section>
+
+  <main class="container" style="margin: 4rem auto; max-width: 1400px;">
+    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+      
+      <aside class="dashboard-sidebar">
+        <nav class="dashboard-nav">
+          <a href="/pages/admin/index.html" class="active">📊 Dashboard</a>
+          <a href="/pages/admin/users.html">👥 Utenti</a>
+          <a href="/pages/admin/projects.html">📁 Progetti</a>
+        </nav>
+      </aside>
+
+      <div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">2.456</h3>
+            <p style="margin: 0; color: #888;">Utenti Registrati</p>
+          </div>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">342</h3>
+            <p style="margin: 0; color: #888;">Progetti Attivi</p>
+          </div>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">€142K</h3>
+            <p style="margin: 0; color: #888;">Transazioni (Mese)</p>
+          </div>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">98.5%</h3>
+            <p style="margin: 0; color: #888;">Uptime</p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+          <div class="card">
+            <h2 style="margin: 0 0 1.5rem 0;">Crescita Utenti (Ultimi 6 Mesi)</h2>
+            <div style="height: 200px; display: flex; align-items: flex-end; gap: 0.5rem; justify-content: space-between;">
+              <div style="flex: 1; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); height: 45%; border-radius: 4px;"></div>
+              <div style="flex: 1; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); height: 58%; border-radius: 4px;"></div>
+              <div style="flex: 1; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); height: 72%; border-radius: 4px;"></div>
+              <div style="flex: 1; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); height: 85%; border-radius: 4px;"></div>
+              <div style="flex: 1; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); height: 92%; border-radius: 4px;"></div>
+              <div style="flex: 1; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); height: 100%; border-radius: 4px;"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 1rem; font-size: 0.85rem; color: #888;">
+              <span>Nov</span><span>Dic</span><span>Gen</span><span>Feb</span><span>Mar</span><span>Apr</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 style="margin: 0 0 1.5rem 0;">Distribuzione Utenti</h2>
+            <div style="display: grid; gap: 1rem;">
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                  <span>Freelancer</span>
+                  <span>42%</span>
+                </div>
+                <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 42%; height: 100%; background: #667eea;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                  <span>Clienti</span>
+                  <span>35%</span>
+                </div>
+                <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 35%; height: 100%; background: #f093fb;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                  <span>Studi</span>
+                  <span>15%</span>
+                </div>
+                <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 15%; height: 100%; background: #4facfe;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                  <span>Imprese</span>
+                  <span>8%</span>
+                </div>
+                <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 8%; height: 100%; background: #fa709a;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 style="margin: 0 0 1.5rem 0;">Attività Recenti</h2>
+          <div style="display: grid; gap: 1rem;">
+            <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <p style="margin: 0 0 0.25rem 0;"><strong>Nuovo progetto creato</strong></p>
+                <p style="margin: 0; font-size: 0.85rem; color: #888;">Ristrutturazione appartamento Milano - Cliente: Famiglia Rossi - ID: #PRJ-2458</p>
+              </div>
+              <span style="font-size: 0.85rem; color: #888;">5 min fa</span>
+            </div>
+            <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <p style="margin: 0 0 0.25rem 0;"><strong>Nuovo utente registrato</strong></p>
+                <p style="margin: 0; font-size: 0.85rem; color: #888;">Studio Architettura Torino - Tipo: Studio - ID: #USR-9876</p>
+              </div>
+              <span style="font-size: 0.85rem; color: #888;">12 min fa</span>
+            </div>
+            <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <p style="margin: 0 0 0.25rem 0;"><strong>Transazione completata</strong></p>
+                <p style="margin: 0; font-size: 0.85rem; color: #888;">Pagamento progetto #PRJ-2401 - €12.500 - Cliente: Sig. Bianchi</p>
+              </div>
+              <span style="font-size: 0.85rem; color: #888;">1 ora fa</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+
+  <script src="../../js/router.js"></script>
+  <script src="../../js/skyline.js"></script>
+  <script src="../../js/api.js"></script>
+  <script src="../../js/navbar.js"></script>
+  <script src="../../js/footer.js"></script>
+</body>
+</html>

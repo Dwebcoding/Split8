@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profilo Studio | SPLit8</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+  <canvas id="skyline-canvas"></canvas>
+  
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="logo">SPLit8</a>
+      <ul class="nav-menu">
+        <li><a href="/account">Account</a></li>
+        <li><a href="#" onclick="SPLit8.auth.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero hero--compact">
+    <div class="container">
+      <h1>Profilo Studio</h1>
+    </div>
+  </section>
+
+  <main class="container" style="margin: 4rem auto; max-width: 1400px;">
+    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+      
+      <aside class="dashboard-sidebar">
+        <nav class="dashboard-nav">
+          <a href="/pages/dashboard/studio/index.html">📊 Dashboard</a>
+          <a href="/pages/dashboard/studio/profile.html" class="active">🏢 Profilo Studio</a>
+          <a href="/pages/dashboard/studio/team.html">👥 Team</a>
+          <a href="/pages/dashboard/studio/projects.html">📁 Progetti</a>
+          <a href="/pages/dashboard/studio/quotes.html">💰 Preventivi</a>
+          <a href="/pages/dashboard/studio/partners.html">🤝 Partner</a>
+        </nav>
+      </aside>
+
+      <div class="card">
+        <h2 style="margin: 0 0 2rem 0;">Informazioni Studio</h2>
+        
+        <form id="profileForm">
+          <div class="form-group">
+            <label>Nome Studio</label>
+            <input type="text" value="Studio Architettura Milano" required>
+          </div>
+          
+          <div class="form-group">
+            <label>Descrizione</label>
+            <textarea rows="4" placeholder="Descrivi il tuo studio, specializzazioni, valori...">Studio di architettura con oltre 15 anni di esperienza nella progettazione residenziale e commerciale. Specializzati in design moderno e sostenibile.</textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Sito Web</label>
+            <input type="url" value="https://www.studiomilano.it">
+          </div>
+
+          <div class="form-group">
+            <label>Indirizzo Sede Principale</label>
+            <input type="text" value="Via della Repubblica 45, Milano, 20100">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label>P.IVA</label>
+              <input type="text" value="IT12345678901" required>
+            </div>
+            <div class="form-group">
+              <label>Anno Fondazione</label>
+              <input type="number" value="2008" min="1900" max="2025">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Settori di Specializzazione</label>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.5rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem;">
+                <input type="checkbox" checked> Residenziale
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem;">
+                <input type="checkbox" checked> Commerciale
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem;">
+                <input type="checkbox"> Industriale
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem;">
+                <input type="checkbox" checked> Ristrutturazioni
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem;">
+                <input type="checkbox"> Interior Design
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem;">
+                <input type="checkbox"> Urbanistica
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Certificazioni</label>
+            <div id="certifications" style="display: grid; gap: 0.5rem; margin-bottom: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: center; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                <span style="flex: 1;">ISO 9001:2015 - Gestione Qualità</span>
+                <button type="button" class="btn--outline" style="padding: 0.5rem 1rem;">Rimuovi</button>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: center; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                <span style="flex: 1;">LEED Accredited Professional</span>
+                <button type="button" class="btn--outline" style="padding: 0.5rem 1rem;">Rimuovi</button>
+              </div>
+            </div>
+            <button type="button" class="btn--outline">+ Aggiungi Certificazione</button>
+          </div>
+
+          <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+            <button type="submit" class="btn--primary">Salva Modifiche</button>
+            <a href="/pages/dashboard/studio/index.html" class="btn--outline">Annulla</a>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+
+  <script src="../../../js/router.js"></script>
+  <script src="../../../js/skyline.js"></script>
+  <script src="../../../js/api.js"></script>
+  <script>
+    document.getElementById('profileForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      console.log('TODO: Update studio profile');
+      alert('Profilo aggiornato con successo!');
+    });
+  </script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

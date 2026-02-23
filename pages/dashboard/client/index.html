@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Cliente | SPLit8</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+  <canvas id="skyline-canvas"></canvas>
+  
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="logo">SPLit8</a>
+      <ul class="nav-menu">
+        <li><a href="/account">Account</a></li>
+        <li><a href="#" onclick="SPLit8.auth.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero hero--compact">
+    <div class="container">
+      <h1>La Mia Dashboard</h1>
+      <p>Gestisci i tuoi progetti e trova i migliori professionisti</p>
+    </div>
+  </section>
+
+  <main class="container" style="margin: 4rem auto; max-width: 1400px;">
+    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+      
+      <aside class="dashboard-sidebar">
+        <nav class="dashboard-nav">
+          <a href="/pages/dashboard/client/index.html" class="active">📊 Dashboard</a>
+          <a href="/pages/dashboard/client/projects.html">📁 I Miei Progetti</a>
+          <a href="/pages/dashboard/client/favorites.html">⭐ Preferiti</a>
+        </nav>
+      </aside>
+
+      <div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">2</h3>
+            <p style="margin: 0; color: #888;">Progetti Attivi</p>
+          </div>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">8</h3>
+            <p style="margin: 0; color: #888;">Preventivi Ricevuti</p>
+          </div>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">5</h3>
+            <p style="margin: 0; color: #888;">Professionisti Preferiti</p>
+          </div>
+        </div>
+
+        <div style="display: grid; gap: 2rem;">
+          
+          <div class="card">
+            <h2 style="margin: 0 0 1.5rem 0;">Progetti in Corso</h2>
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                  <div>
+                    <h3 style="margin: 0 0 0.5rem 0;">Ristrutturazione Appartamento Milano</h3>
+                    <p style="margin: 0; color: #888;">Professionista: Studio Architettura Milano</p>
+                  </div>
+                  <span class="badge" style="padding: 0.5rem 1rem; background: rgba(46,213,115,0.2); color: #2ed573; border-radius: 20px;">In Corso</span>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem;">
+                  <div>
+                    <p style="margin: 0; color: #888; font-size: 0.85rem;">Budget Concordato</p>
+                    <p style="margin: 0.25rem 0 0 0;">€45.000</p>
+                  </div>
+                  <div>
+                    <p style="margin: 0; color: #888; font-size: 0.85rem;">Inizio</p>
+                    <p style="margin: 0.25rem 0 0 0;">15 Apr 2025</p>
+                  </div>
+                  <div>
+                    <p style="margin: 0; color: #888; font-size: 0.85rem;">Completamento Previsto</p>
+                    <p style="margin: 0.25rem 0 0 0;">30 Giu 2025</p>
+                  </div>
+                </div>
+                <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Vedi Dettagli</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 style="margin: 0 0 1.5rem 0;">Nuovi Preventivi (8)</h2>
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <h3 style="margin: 0 0 0.5rem 0;">Progettazione Giardino - Arch. Giovanni Verdi</h3>
+                  <p style="margin: 0; color: #888;">Preventivo: €12.500 · Tempi: 45 giorni · Valutazione: 4.9★</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Visualizza</button>
+                  <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Confronta</button>
+                </div>
+              </div>
+              <div style="padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <h3 style="margin: 0 0 0.5rem 0;">Progettazione Giardino - Studio Verde Urbano</h3>
+                  <p style="margin: 0; color: #888;">Preventivo: €10.800 · Tempi: 50 giorni · Valutazione: 4.7★</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Visualizza</button>
+                  <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Confronta</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="background: linear-gradient(135deg, rgba(102,126,234,0.2) 0%, rgba(118,75,162,0.2) 100%); border: 1px solid rgba(102,126,234,0.3);">
+            <h2 style="margin: 0 0 1rem 0;">🔍 Hai un nuovo progetto?</h2>
+            <p style="margin: 0 0 1.5rem 0; color: #ccc;">Trova i migliori professionisti per il tuo prossimo progetto. Ricevi preventivi gratuiti e confronta le offerte.</p>
+            <button class="btn--primary" style="padding: 0.75rem 2rem;">Crea Nuova Richiesta</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+
+  <script src="../../../js/router.js"></script>
+  <script src="../../../js/skyline.js"></script>
+  <script src="../../../js/api.js"></script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

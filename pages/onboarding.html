@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPLit8 - Completa il profilo</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <canvas id="skyline" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand__mark"></span>
+        <div class="brand__text">
+          <h1>SPLit8</h1>
+          <p>Onboarding</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+      </nav>
+    </header>
+
+    <section class="hero hero--compact">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Step 2/3</p>
+        <h2 class="hero__title">Completa il tuo profilo professionale.</h2>
+        <p class="hero__subtitle">Informazioni che aiuteranno le aziende a trovarti.</p>
+      </div>
+    </section>
+
+    <main class="content page-grid" style="max-width: 520px; margin: 0 auto;">
+      <section class="card">
+        <header class="card__header">
+          <h2>Competenze</h2>
+          <p>Seleziona le tue aree di specializzazione.</p>
+        </header>
+
+        <form id="onboardingForm" novalidate>
+          <label class="field">
+            <span>Area geografica principale *</span>
+            <input type="text" name="area" placeholder="Es. Lombardia" required />
+            <small class="error"></small>
+          </label>
+
+          <label class="field">
+            <span>Specializzazione principale *</span>
+            <input type="text" name="specialization" placeholder="Es. Strutture metalliche" required />
+            <small class="error"></small>
+          </label>
+
+          <label class="field">
+            <span>Competenze aggiuntive</span>
+            <input type="text" name="skills" placeholder="Es. BIM, Sicurezza cantieri, Diagnostica" />
+          </label>
+
+          <label class="field">
+            <span>Descrizione breve</span>
+            <input type="text" name="bio" placeholder="Chi sei e cosa offri..." />
+          </label>
+
+          <label class="field">
+            <span>Numero di dipendenti / Team</span>
+            <input type="number" name="teamSize" placeholder="1" />
+          </label>
+
+          <div class="actions">
+            <button type="submit" class="btn">Completa iscrizione</button>
+            <a class="btn btn--ghost" href="dashboard.html">Salta per ora</a>
+          </div>
+
+          <p id="onboardingStatus" class="muted" style="text-align: center; margin-top: 8px;"></p>
+        </form>
+      </section>
+
+      <section class="card">
+        <header class="card__header">
+          <h2>Cosa puoi fare ora</h2>
+          <p>Il tuo account è attivo. Inizia subito.</p>
+        </header>
+        <ul class="list-compact">
+          <li>Visualizza inserzioni geolocalizzate sulla mappa</li>
+          <li>Aggiungi lavori ai tuoi favoriti</li>
+          <li>Ricevi notifiche per nuove opportunità</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+  </div>
+
+  <script>
+    const state = {
+      auth: {
+        token: localStorage.getItem("split8:token") || "",
+        user: JSON.parse(localStorage.getItem("split8:user") || "null"),
+      },
+    };
+
+    if (!state.auth.token) {
+      window.location.href = "signup.html";
+    }
+
+    const apiRequest = async (url, options = {}) => {
+      const headers = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${state.auth.token}`,
+        ...(options.headers || {}),
+      };
+      const response = await fetch(url, { ...options, headers });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(payload.error || "Errore server.");
+      }
+      return payload;
+    };
+
+    const form = document.getElementById("onboardingForm");
+    const status = document.getElementById("onboardingStatus");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const fields = form.querySelectorAll("[required]");
+      let isValid = true;
+      fields.forEach((field) => {
+        const error = field.closest(".field")?.querySelector(".error");
+        if (!field.value.trim()) {
+          error.textContent = "Campo obbligatorio.";
+          isValid = false;
+        } else {
+          error.textContent = "";
+        }
+      });
+
+      if (!isValid) return;
+
+      try {
+        status.textContent = "Salvataggio profilo...";
+        await apiRequest("/api/profile", {
+          method: "PUT",
+          body: JSON.stringify({
+            area: form.area.value.trim(),
+            specialization: form.specialization.value.trim(),
+            skills: form.skills.value.trim() || "",
+            bio: form.bio.value.trim() || "",
+            teamSize: parseInt(form.teamSize.value) || 1,
+          }),
+        });
+        status.textContent = "Profilo completato! Reindirizzamento...";
+        setTimeout(() => {
+          window.location.href = "dashboard.html";
+        }, 1500);
+      } catch (error) {
+        status.textContent = error.message;
+      }
+    });
+  </script>
+  <script src="../js/script.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/footer.js"></script>
+</body>
+</html>

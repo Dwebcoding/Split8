@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analytics · SPLit8</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <canvas id="skyline-canvas" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <!-- Navbar Component -->`n    <div id="navbar-placeholder"></div>
+
+    <section class="hero hero--compact">
+      <div class="hero__background">
+        <div class="hero__gradient"></div>
+        <div class="hero__grid"></div>
+      </div>
+      
+      <div class="hero__content">
+        <h1 class="hero__title">Analytics</h1>
+      </div>
+    </section>
+
+    <main class="main">
+      <section class="section" style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 2rem;">
+          <!-- Sidebar Dashboard -->
+          <aside class="dashboard-sidebar">
+            <nav class="dashboard-nav">
+              <a href="index.html" class="dashboard-nav__link">Dashboard</a>
+              <a href="projects.html" class="dashboard-nav__link">Progetti</a>
+              <a href="requests.html" class="dashboard-nav__link">Richieste</a>
+              <a href="portfolio.html" class="dashboard-nav__link">Portfolio</a>
+              <a href="messages.html" class="dashboard-nav__link">Messaggi</a>
+              <a href="reviews.html" class="dashboard-nav__link">Valutazioni</a>
+              <a href="alerts.html" class="dashboard-nav__link">Alert</a>
+              <a href="analytics.html" class="dashboard-nav__link active">Analytics</a>
+              <a href="profile.html" class="dashboard-nav__link">Profilo</a>
+              <a href="../account.html" class="dashboard-nav__link">Account</a>
+            </nav>
+          </aside>
+
+          <!-- Content -->
+          <div class="dashboard-content">
+            <h2>Statistiche Profilo</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2rem 0;">
+              <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 8px;">
+                <p style="margin: 0; opacity: 0.9; font-size: 0.9rem;">Progetti Completati</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 2rem; font-weight: bold;">18</p>
+              </div>
+              <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1.5rem; border-radius: 8px;">
+                <p style="margin: 0; opacity: 0.9; font-size: 0.9rem;">Richieste Ricevute</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 2rem; font-weight: bold;">47</p>
+              </div>
+              <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 1.5rem; border-radius: 8px;">
+                <p style="margin: 0; opacity: 0.9; font-size: 0.9rem;">Tasso di Accettazione</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 2rem; font-weight: bold;">72%</p>
+              </div>
+              <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; padding: 1.5rem; border-radius: 8px;">
+                <p style="margin: 0; opacity: 0.9; font-size: 0.9rem;">Valutazione Media</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 2rem; font-weight: bold;">4.8 ★</p>
+              </div>
+            </div>
+
+            <h2 style="margin-top: 2rem;">Richieste per Categoria</h2>
+            <div class="card" style="margin-top: 1rem;">
+              <div style="display: grid; grid-template-columns: 1fr 50px; gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                  <p style="margin: 0; font-weight: 600;">Progettazione Residenziale</p>
+                  <div style="background: #eee; height: 8px; border-radius: 4px; margin-top: 0.5rem;">
+                    <div style="background: var(--primary-color); height: 8px; border-radius: 4px; width: 85%;"></div>
+                  </div>
+                </div>
+                <p style="margin: 0; text-align: right; font-weight: bold;">28</p>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 50px; gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                  <p style="margin: 0; font-weight: 600;">Sopralluoghi Tecnici</p>
+                  <div style="background: #eee; height: 8px; border-radius: 4px; margin-top: 0.5rem;">
+                    <div style="background: var(--primary-color); height: 8px; border-radius: 4px; width: 65%;"></div>
+                  </div>
+                </div>
+                <p style="margin: 0; text-align: right; font-weight: bold;">14</p>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 50px; gap: 1rem;">
+                <div>
+                  <p style="margin: 0; font-weight: 600;">Design Commerciale</p>
+                  <div style="background: #eee; height: 8px; border-radius: 4px; margin-top: 0.5rem;">
+                    <div style="background: var(--primary-color); height: 8px; border-radius: 4px; width: 45%;"></div>
+                  </div>
+                </div>
+                <p style="margin: 0; text-align: right; font-weight: bold;">5</p>
+              </div>
+            </div>
+
+            <h2 style="margin-top: 2rem;">Trend Ultimi 6 Mesi</h2>
+            <div class="card" style="margin-top: 1rem; height: 300px; display: flex; align-items: flex-end; justify-content: space-around; padding: 2rem 1rem;">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                <div style="width: 40px; height: 100px; background: linear-gradient(180deg, var(--primary-color) 0%, rgba(0,0,0,0.1) 100%); border-radius: 4px;"></div>
+                <p style="margin: 0; font-size: 0.85rem;">Gen</p>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                <div style="width: 40px; height: 150px; background: linear-gradient(180deg, var(--primary-color) 0%, rgba(0,0,0,0.1) 100%); border-radius: 4px;"></div>
+                <p style="margin: 0; font-size: 0.85rem;">Feb</p>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                <div style="width: 40px; height: 80px; background: linear-gradient(180deg, var(--primary-color) 0%, rgba(0,0,0,0.1) 100%); border-radius: 4px;"></div>
+                <p style="margin: 0; font-size: 0.85rem;">Mar</p>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                <div style="width: 40px; height: 120px; background: linear-gradient(180deg, var(--primary-color) 0%, rgba(0,0,0,0.1) 100%); border-radius: 4px;"></div>
+                <p style="margin: 0; font-size: 0.85rem;">Apr</p>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                <div style="width: 40px; height: 180px; background: linear-gradient(180deg, var(--primary-color) 0%, rgba(0,0,0,0.1) 100%); border-radius: 4px;"></div>
+                <p style="margin: 0; font-size: 0.85rem;">Mag</p>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                <div style="width: 40px; height: 200px; background: linear-gradient(180deg, var(--primary-color) 0%, rgba(0,0,0,0.1) 100%); border-radius: 4px;"></div>
+                <p style="margin: 0; font-size: 0.85rem;">Gen</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+  </div>
+
+  <script src="../../js/router.js"></script>
+  <script src="../../js/skyline.js"></script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

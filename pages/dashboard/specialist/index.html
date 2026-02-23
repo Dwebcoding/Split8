@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Specialista | SPLit8</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+  <canvas id="skyline-canvas"></canvas>
+  
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="logo">SPLit8</a>
+      <ul class="nav-menu">
+        <li><a href="/account">Account</a></li>
+        <li><a href="#" onclick="SPLit8.auth.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero hero--compact">
+    <div class="container">
+      <h1>Dashboard Specialista</h1>
+      <p>Gestisci i tuoi incarichi professionali</p>
+    </div>
+  </section>
+
+  <main class="container" style="margin: 4rem auto; max-width: 1400px;">
+    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+      
+      <aside class="dashboard-sidebar">
+        <nav class="dashboard-nav">
+          <a href="/pages/dashboard/specialist/index.html" class="active">📊 Dashboard</a>
+          <a href="/pages/dashboard/specialist/commissions.html">📋 Incarichi</a>
+          <a href="/pages/dashboard/specialist/profile.html">👤 Profilo</a>
+          <a href="/pages/dashboard/specialist/messages.html">💬 Messaggi</a>
+        </nav>
+      </aside>
+
+      <div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">8</h3>
+            <p style="margin: 0; color: #888;">Incarichi Attivi</p>
+          </div>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">3</h3>
+            <p style="margin: 0; color: #888;">Nuove Richieste</p>
+          </div>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">24</h3>
+            <p style="margin: 0; color: #888;">Incarichi Totali</p>
+          </div>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">4.9★</h3>
+            <p style="margin: 0; color: #888;">Valutazione</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 2rem;">
+          <h2 style="margin: 0 0 1.5rem 0;">Incarichi in Corso</h2>
+          <div style="display: grid; gap: 1rem;">
+            <div style="padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                <div>
+                  <h3 style="margin: 0 0 0.5rem 0;">Perizia Immobiliare</h3>
+                  <p style="margin: 0; color: #888;">Cliente: Famiglia Verdi · Scadenza: 25 Mag 2025</p>
+                </div>
+                <span class="badge" style="padding: 0.5rem 1rem; background: rgba(46,213,115,0.2); color: #2ed573; border-radius: 20px;">In Corso</span>
+              </div>
+              <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Dettagli</button>
+            </div>
+            <div style="padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                <div>
+                  <h3 style="margin: 0 0 0.5rem 0;">Direzione Lavori Residenza</h3>
+                  <p style="margin: 0; color: #888;">Cliente: Studio Architettura Milano · Scadenza: 15 Giu 2025</p>
+                </div>
+                <span class="badge" style="padding: 0.5rem 1rem; background: rgba(255,159,67,0.2); color: #ff9f43; border-radius: 20px;">In Attesa Documenti</span>
+              </div>
+              <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Dettagli</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 style="margin: 0 0 1.5rem 0;">Nuove Richieste (3)</h2>
+          <div style="display: grid; gap: 1rem;">
+            <div style="padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h3 style="margin: 0 0 0.5rem 0;">Certificazione Energetica APE</h3>
+                <p style="margin: 0; color: #888;">Richiesta 2 ore fa · Budget: €350</p>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Accetta</button>
+                <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Rifiuta</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+
+  <script src="../../../js/router.js"></script>
+  <script src="../../../js/skyline.js"></script>
+  <script src="../../../js/api.js"></script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

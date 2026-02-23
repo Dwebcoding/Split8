@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPLit8 - Aziende</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <canvas id="skyline-canvas" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <!-- Navbar Component -->`n    <div id="navbar-placeholder"></div>
+
+    <section class="hero hero--compact">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Network professionale</p>
+        <h2 class="hero__title">Studi tecnici e aziende che pubblicano lavori.</h2>
+        <p class="hero__subtitle">Profilo aziendale, portfolio, rating e collaborazioni continuative.</p>
+        <div class="hero__actions">
+          <a class="btn" href="pricing.html">Diventa partner</a>
+          <a class="btn btn--ghost" href="contact.html">Contattaci</a>
+        </div>
+      </div>
+    </section>
+
+    <main class="content page-grid">
+      <section class="card">
+        <header class="card__header">
+          <h2>Partner in evidenza</h2>
+          <p>Selezione di studi tecnici con alto volume di inserzioni.</p>
+        </header>
+        <div class="section-grid">
+          <article class="card card--compact">
+            <span class="pill">Milano</span>
+            <h3>Studio Delta</h3>
+            <p class="muted">48 inserzioni · 4.9 rating</p>
+          </article>
+          <article class="card card--compact">
+            <span class="pill">Roma</span>
+            <h3>GeoLab Pro</h3>
+            <p class="muted">35 inserzioni · 4.7 rating</p>
+          </article>
+          <article class="card card--compact">
+            <span class="pill">Torino</span>
+            <h3>Infra Tech</h3>
+            <p class="muted">22 inserzioni · 4.6 rating</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <header class="card__header">
+          <h2>Vantaggi aziende</h2>
+          <p>Gestisci pipeline, team e KPI in modo centralizzato.</p>
+        </header>
+        <ul class="list-compact">
+          <li>Dashboard con flussi di lavoro e SLA</li>
+          <li>Workflow di approvazione integrato</li>
+          <li>Team multi-sede e ruoli granulari</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+  </div>
+
+  <div class="auth-modal" id="authModal" aria-hidden="true" role="dialog" aria-label="Iscrizione utenti">
+    <div class="auth-modal__panel">
+      <button class="panel__close" id="closeAuth" aria-label="Chiudi iscrizione">✕</button>
+      <div class="auth-modal__header">
+        <h3>Iscrizione / Accesso</h3>
+        <p>Crea il tuo profilo professionale o accedi con le credenziali salvate.</p>
+      </div>
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab is-active" data-auth-mode="register">Iscriviti</button>
+        <button type="button" class="auth-tab" data-auth-mode="login">Accedi</button>
+      </div>
+      <form id="authForm" class="auth-form" novalidate>
+        <label class="field">
+          <span>Nome completo *</span>
+          <input type="text" name="fullName" placeholder="Es. Luca Bianchi" required />
+          <small class="error"></small>
+        </label>
+        <label class="field">
+          <span>Email *</span>
+          <input type="email" name="email" placeholder="nome@studio.it" required />
+          <small class="error"></small>
+        </label>
+        <label class="field">
+          <span>Password *</span>
+          <input type="password" name="password" placeholder="Min. 6 caratteri" required />
+          <small class="error"></small>
+        </label>
+        <div class="actions">
+          <button type="submit" class="btn">Salva profilo</button>
+          <button type="button" class="btn btn--ghost" id="authLogout">Esci</button>
+        </div>
+        <p class="muted" id="authStatus"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/router.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/footer.js"></script>
+</body>
+</html>

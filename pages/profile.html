@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPLit8 - Profilo</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <canvas id="skyline" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand__mark"></span>
+        <div class="brand__text">
+          <h1>SPLit8</h1>
+          <p>Profilo professionale</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="messages.html">Messaggi</a>
+        <a href="favorites.html">Favoriti</a>
+        <a href="applications.html">Candidature</a>
+        <button class="nav__cta" id="openAuth">Account</button>
+      </nav>
+    </header>
+
+    <section class="hero hero--compact">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Profilo</p>
+        <h2 class="hero__title">Gestisci competenze, portfolio e disponibilità.</h2>
+        <p class="hero__subtitle">Aggiorna i dati per ricevere inserzioni più pertinenti.</p>
+      </div>
+    </section>
+
+    <main class="content page-grid">
+      <section class="card">
+        <header class="card__header">
+          <h2>Dati principali</h2>
+          <p>Informazioni professionali base.</p>
+        </header>
+        <div class="two-col">
+          <label class="field">
+            <span>Nome completo</span>
+            <input type="text" name="fullName" placeholder="Luca Bianchi" />
+          </label>
+          <label class="field">
+            <span>Profilo *</span>
+            <select name="role" required>
+              <option value="">Seleziona profilo</option>
+              <option value="freelancer">Freelancer</option>
+              <option value="studio">Studio tecnico</option>
+              <option value="azienda">Azienda</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Area operativa</span>
+            <input type="text" name="area" placeholder="Lombardia" />
+          </label>
+          <label class="field">
+            <span>Specializzazione</span>
+            <input type="text" name="specialization" placeholder="Ingegnere strutturista" />
+          </label>
+          <label class="field">
+            <span>Competenze chiave</span>
+            <input type="text" name="skills" placeholder="BIM, Strutture, Energia" />
+          </label>
+          <label class="field">
+            <span>Bio / Descrizione</span>
+            <textarea name="bio" placeholder="Raccontati..." style="min-height: 80px;"></textarea>
+          </label>
+        </div>
+        <div class="actions">
+          <button class="btn" id="saveProfileBtn">Salva</button>
+          <button class="btn btn--ghost" id="cancelProfileBtn">Annulla</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <header class="card__header">
+          <h2>Competenze chiave</h2>
+          <p>Seleziona le aree di specializzazione.</p>
+        </header>
+        <div class="section-grid">
+          <article class="card card--compact">
+            <span class="pill">BIM</span>
+            <p class="muted">Progetti integrati</p>
+          </article>
+          <article class="card card--compact">
+            <span class="pill">Strutture</span>
+            <p class="muted">Calcoli e verifiche</p>
+          </article>
+          <article class="card card--compact">
+            <span class="pill">Energia</span>
+            <p class="muted">Diagnosi e certificazioni</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+  </div>
+
+  <div class="auth-modal" id="authModal" aria-hidden="true" role="dialog" aria-label="Iscrizione utenti">
+    <div class="auth-modal__panel">
+      <button class="panel__close" id="closeAuth" aria-label="Chiudi iscrizione">✕</button>
+      <div class="auth-modal__header">
+        <h3>Iscrizione / Accesso</h3>
+        <p>Crea il tuo profilo professionale o accedi con le credenziali salvate.</p>
+      </div>
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab is-active" data-auth-mode="register">Iscriviti</button>
+        <button type="button" class="auth-tab" data-auth-mode="login">Accedi</button>
+      </div>
+      <form id="authForm" class="auth-form" novalidate>
+        <label class="field">
+          <span>Nome completo *</span>
+          <input type="text" name="fullName" placeholder="Es. Luca Bianchi" required />
+          <small class="error"></small>
+        </label>
+        <label class="field">
+          <span>Email *</span>
+          <input type="email" name="email" placeholder="nome@studio.it" required />
+          <small class="error"></small>
+        </label>
+        <label class="field">
+          <span>Password *</span>
+          <input type="password" name="password" placeholder="Min. 6 caratteri" required />
+          <small class="error"></small>
+        </label>
+        <div class="actions">
+          <button type="submit" class="btn">Salva profilo</button>
+          <button type="button" class="btn btn--ghost" id="authLogout">Esci</button>
+        </div>
+        <p class="muted" id="authStatus"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+  <script>
+    // Auth guard
+    document.addEventListener("DOMContentLoaded", async () => {
+      const token = localStorage.getItem("split8:token");
+      if (!token) {
+        window.location.href = "signup.html";
+        return;
+      }
+
+      // Load user data
+      try {
+        const response = await apiRequest("/api/me", { method: "GET" });
+        const user = response.user;
+        
+        // Populate form
+        document.querySelector('input[name="fullName"]').value = user.fullName || "";
+        document.querySelector('select[name="role"]').value = user.role || "";
+        document.querySelector('input[name="area"]').value = user.area || "";
+        document.querySelector('input[name="specialization"]').value = user.specialization || "";
+        document.querySelector('input[name="skills"]').value = user.skills || "";
+        document.querySelector('textarea[name="bio"]').value = user.bio || "";
+      } catch (err) {
+        console.error("Error loading user data:", err);
+      }
+    });
+
+    // Save profile button
+    document.getElementById("saveProfileBtn").addEventListener("click", async (e) => {
+      e.preventDefault();
+      
+      const data = {
+        area: document.querySelector('input[name="area"]').value.trim(),
+        specialization: document.querySelector('input[name="specialization"]').value.trim(),
+        skills: document.querySelector('input[name="skills"]').value.trim(),
+        bio: document.querySelector('textarea[name="bio"]').value.trim(),
+      };
+
+      try {
+        const result = await apiRequest("/api/profile", {
+          method: "PUT",
+          body: JSON.stringify(data),
+        });
+        
+        alert("Profilo aggiornato con successo!");
+      } catch (err) {
+        alert("Errore nel salvataggio: " + err.message);
+      }
+    });
+
+    // Cancel button
+    document.getElementById("cancelProfileBtn").addEventListener("click", () => {
+      window.location.href = "dashboard.html";
+    });
+
+    // Auth modal handlers
+    document.getElementById("openAuth").addEventListener("click", () => {
+      document.getElementById("authModal").classList.add("is-open");
+    });
+
+    document.getElementById("closeAuth").addEventListener("click", () => {
+      document.getElementById("authModal").classList.remove("is-open");
+    });
+
+    document.getElementById("authModal").addEventListener("click", (e) => {
+      if (e.target === document.getElementById("authModal")) {
+        document.getElementById("authModal").classList.remove("is-open");
+      }
+    });
+
+    document.getElementById("authForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const email = form.email.value.trim().toLowerCase();
+      const password = form.password.value;
+      const status = document.getElementById("authStatus");
+
+      if (!email || !password) {
+        status.style.color = "var(--accent)";
+        status.textContent = "Credenziali richieste";
+        return;
+      }
+
+      try {
+        const result = await apiRequest("/api/login", {
+          method: "POST",
+          body: JSON.stringify({ email, password }),
+        });
+        
+        localStorage.setItem("split8:token", result.token);
+        localStorage.setItem("split8:user", JSON.stringify(result.user));
+        window.location.reload();
+      } catch (err) {
+        status.style.color = "var(--accent)";
+        status.textContent = err.message || "Errore accesso";
+      }
+    });
+  </script>

@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard · SPLit8</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <canvas id="skyline-canvas" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <!-- Navbar Component -->`n    <div id="navbar-placeholder"></div>
+
+    <section class="hero hero--compact">
+      <div class="hero__background">
+        <div class="hero__gradient"></div>
+        <div class="hero__grid"></div>
+      </div>
+      
+      <div class="hero__content">
+        <h1 class="hero__title">Bentornato, Mario!</h1>
+        <p class="hero__subtitle">Dashboard Professionista</p>
+      </div>
+    </section>
+
+    <main class="main">
+      <section class="section" style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 2rem;">
+          <!-- Sidebar Dashboard -->
+          <aside class="dashboard-sidebar">
+            <nav class="dashboard-nav">
+              <a href="index.html" class="dashboard-nav__link active">Dashboard</a>
+              <a href="projects.html" class="dashboard-nav__link">Progetti</a>
+              <a href="requests.html" class="dashboard-nav__link">Richieste</a>
+              <a href="portfolio.html" class="dashboard-nav__link">Portfolio</a>
+              <a href="messages.html" class="dashboard-nav__link">Messaggi</a>
+              <a href="reviews.html" class="dashboard-nav__link">Valutazioni</a>
+              <a href="alerts.html" class="dashboard-nav__link">Alert</a>
+              <a href="analytics.html" class="dashboard-nav__link">Analytics</a>
+              <a href="profile.html" class="dashboard-nav__link">Profilo</a>
+              <a href="../account.html" class="dashboard-nav__link">Account</a>
+            </nav>
+          </aside>
+
+          <!-- Content -->
+          <div class="dashboard-content">
+            <h2>Panoramica</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2rem 0;">
+              <div class="card" style="text-align: center;">
+                <p style="margin: 0; color: #999; font-size: 0.9rem;">Progetti Attivi</p>
+                <p style="margin: 0.5rem 0; font-size: 2.5rem; font-weight: bold;">3</p>
+              </div>
+              <div class="card" style="text-align: center;">
+                <p style="margin: 0; color: #999; font-size: 0.9rem;">Richieste in Sospeso</p>
+                <p style="margin: 0.5rem 0; font-size: 2.5rem; font-weight: bold;">5</p>
+              </div>
+              <div class="card" style="text-align: center;">
+                <p style="margin: 0; color: #999; font-size: 0.9rem;">Messaggi Non Letti</p>
+                <p style="margin: 0.5rem 0; font-size: 2.5rem; font-weight: bold;">2</p>
+              </div>
+              <div class="card" style="text-align: center;">
+                <p style="margin: 0; color: #999; font-size: 0.9rem;">Valutazione</p>
+                <p style="margin: 0.5rem 0; font-size: 2.5rem; font-weight: bold;">4.8 ★</p>
+              </div>
+            </div>
+
+            <h3>Attività Recente</h3>
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+              <div class="card">
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                  <div style="width: 40px; height: 40px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">📧</div>
+                  <div style="flex: 1;">
+                    <p style="margin: 0; font-weight: 600;">Nuova richiesta di preventivo</p>
+                    <p style="margin: 0.5rem 0 0 0; color: #666;">Lucia Verdi • Progettazione Appartamento</p>
+                    <p style="margin: 0.5rem 0 0 0; color: #999; font-size: 0.85rem;">Oggi alle 14:30</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                  <div style="width: 40px; height: 40px; background: #28a745; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">✓</div>
+                  <div style="flex: 1;">
+                    <p style="margin: 0; font-weight: 600;">Progetto completato</p>
+                    <p style="margin: 0.5rem 0 0 0; color: #666;">Retail Design • Studio XYZ</p>
+                    <p style="margin: 0.5rem 0 0 0; color: #999; font-size: 0.85rem;">Ieri</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                  <div style="width: 40px; height: 40px; background: #ffc107; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">★</div>
+                  <div style="flex: 1;">
+                    <p style="margin: 0; font-weight: 600;">Nuova valutazione ricevuta</p>
+                    <p style="margin: 0.5rem 0 0 0; color: #666;">5 stelle da Marco Bianchi</p>
+                    <p style="margin: 0.5rem 0 0 0; color: #999; font-size: 0.85rem;">3 giorni fa</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Quick Actions</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
+              <a href="requests.html" class="card" style="text-decoration: none; text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">📋</div>
+                <p style="margin: 0; font-weight: 600;">Gestisci Richieste</p>
+              </a>
+              <a href="projects.html" class="card" style="text-decoration: none; text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">📁</div>
+                <p style="margin: 0; font-weight: 600;">I Miei Progetti</p>
+              </a>
+              <a href="messages.html" class="card" style="text-decoration: none; text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">💬</div>
+                <p style="margin: 0; font-weight: 600;">Messaggi</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+  </div>
+
+  <script src="../../js/router.js"></script>
+  <script src="../../js/skyline.js"></script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

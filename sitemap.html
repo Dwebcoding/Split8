@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sitemap - SPLit8</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .sitemap {
+      padding: var(--space-3xl) 0;
+    }
+    
+    .sitemap__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    .sitemap__header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .sitemap__header h1 {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .sitemap__header p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+    }
+
+    .sitemap__sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: var(--space-lg);
+      margin-bottom: var(--space-3xl);
+    }
+
+    .sitemap__section {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: var(--space-lg);
+      overflow: hidden;
+    }
+
+    .sitemap__section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: var(--space-md);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sitemap__section-title::before {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .sitemap__links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sitemap__link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      background: rgba(var(--accent-rgb), 0.05);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--accent);
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .sitemap__link:hover {
+      background: rgba(var(--accent-rgb), 0.1);
+      transform: translateX(4px);
+    }
+
+    .sitemap__link::before {
+      content: "→";
+      font-weight: 600;
+      opacity: 0.6;
+    }
+
+    .sitemap__count {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--bg-primary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: auto;
+    }
+
+    .sitemap__stats {
+      background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.1) 0%, rgba(var(--accent-rgb), 0.05) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: var(--space-lg);
+      text-align: center;
+    }
+
+    .sitemap__stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    .sitemap__stat {
+      padding: var(--space-md);
+    }
+
+    .sitemap__stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .sitemap__stat-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="skyline-canvas" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <!-- Navbar Component -->
+    <div id="navbar-placeholder"></div>
+
+    <section class="sitemap">
+      <div class="sitemap__container">
+        <div class="sitemap__header">
+          <h1>🗂️ Mappa del Sito</h1>
+          <p>Accedi a tutte le pagine della piattaforma SPLit8</p>
+        </div>
+
+        <!-- PAGINE PUBBLICHE -->
+        <div class="sitemap__section">
+          <h2 class="sitemap__section-title">Pagine Pubbliche</h2>
+          <div class="sitemap__links">
+            <a href="index.html" class="sitemap__link">Home <span class="sitemap__count">1</span></a>
+            <a href="pages/about.html" class="sitemap__link">Chi Siamo <span class="sitemap__count">2</span></a>
+            <a href="pages/pricing.html" class="sitemap__link">Prezzi <span class="sitemap__count">3</span></a>
+            <a href="pages/companies.html" class="sitemap__link">Aziende <span class="sitemap__count">4</span></a>
+            <a href="pages/search.html" class="sitemap__link">Ricerca <span class="sitemap__count">5</span></a>
+            <a href="pages/support.html" class="sitemap__link">Supporto <span class="sitemap__count">6</span></a>
+            <a href="pages/faq.html" class="sitemap__link">FAQ <span class="sitemap__count">7</span></a>
+            <a href="pages/contact.html" class="sitemap__link">Contatti <span class="sitemap__count">8</span></a>
+          </div>
+        </div>
+
+        <!-- AUTENTICAZIONE -->
+        <div class="sitemap__section">
+          <h2 class="sitemap__section-title">Autenticazione</h2>
+          <div class="sitemap__links">
+            <a href="pages/login.html" class="sitemap__link">Login <span class="sitemap__count">1</span></a>
+            <a href="pages/signup.html" class="sitemap__link">Registrazione <span class="sitemap__count">2</span></a>
+            <a href="pages/forgot-password.html" class="sitemap__link">Password Dimenticata <span class="sitemap__count">3</span></a>
+            <a href="pages/reset-password.html" class="sitemap__link">Reimposta Password <span class="sitemap__count">4</span></a>
+            <a href="pages/verify-email.html" class="sitemap__link">Verifica Email <span class="sitemap__count">5</span></a>
+          </div>
+        </div>
+
+        <!-- ACCOUNT -->
+        <div class="sitemap__section">
+          <h2 class="sitemap__section-title">Account</h2>
+          <div class="sitemap__links">
+            <a href="pages/account.html" class="sitemap__link">Profilo <span class="sitemap__count">1</span></a>
+            <a href="pages/account/subscription.html" class="sitemap__link">Abbonamento <span class="sitemap__count">2</span></a>
+          </div>
+        </div>
+
+        <!-- DASHBOARD FREELANCER -->
+        <div class="sitemap__section">
+          <h2 class="sitemap__section-title">Dashboard Freelancer</h2>
+          <div class="sitemap__links">
+            <a href="pages/dashboard/freelancer/index.html" class="sitemap__link">Home <span class="sitemap__count">1</span></a>
+            <a href="pages/dashboard/freelancer/projects.html" class="sitemap__link">Progetti <span class="sitemap__count">2</span></a>
+            <a href="pages/dashboard/freelancer/requests.html" class="sitemap__link">Richieste <span class="sitemap__count">3</span></a>
+            <a href="pages/dashboard/freelancer/portfolio.html" class="sitemap__link">Portfolio <span class="sitemap__count">4</span></a>
+            <a href="pages/dashboard/freelancer/messages.html" class="sitemap__link">Messaggi <span class="sitemap__count">5</span></a>
+            <a href="pages/dashboard/freelancer/reviews.html" class="sitemap__link">Recensioni <span class="sitemap__count">6</span></a>
+            <a href="pages/dashboard/freelancer/alerts.html" class="sitemap__link">Avvisi <span class="sitemap__count">7</span></a>
+            <a href="pages/dashboard/freelancer/analytics.html" class="sitemap__link">Analytics <span class="sitemap__count">8</span></a>
+            <a href="pages/dashboard/freelancer/profile.html" class="sitemap__link">Profilo <span class="sitemap__count">9</span></a>
+          </div>
+        </div>
+
+        <!-- DASHBOARD STUDIO -->
+        <div class="sitemap__section">
+          <h2 class="sitemap__section-title">Dashboard Studio</h2>
+          <div class="sitemap__links">
+            <a href="pages/dashboard/studio/index.html" class="sitemap__link">Home <span class="sitemap__count">1</span></a>
+            <a href="pages/dashboard/studio/profile.html" class="sitemap__link">Profilo <span class="sitemap__count">2</span></a>
+            <a href="pages/dashboard/studio/team.html" class="sitemap__link">Team <span class="sitemap__count">3</span></a>
+            <a href="pages/dashboard/studio/projects.html" class="sitemap__link">Progetti <span class="sitemap__count">4</span></a>
+            <a href="pages/dashboard/studio/quotes.html" class="sitemap__link">Preventivi <span class="sitemap__count">5</span></a>
+            <a href="pages/dashboard/studio/partners.html" class="sitemap__link">Partner <span class="sitemap__count">6</span></a>
+          </div>
+        </div>
+
+        <!-- DASHBOARD SPECIALIST -->
+        <div class="sitemap__section">
+          <h2 class="sitemap__section-title">Dashboard Specialista</h2>
+          <div class="sitemap__links">
+            <a href="pages/dashboard/specialist/index.html" class="sitemap__link">Home <span class="sitemap__count">1</span></a>
+            <a href="pages/dashboard/specialist/commissions.html" class="sitemap__link">Commissioni <span class="sitemap__count">2</span></a>
+            <a href="pages/dashboard/specialist/profile.html" class="sitemap__link">Profilo <span class="sitemap__count">3</span></a>
+            <a href="pages/dashboard/specialist/messages.html" class="sitemap__link">Messaggi <span class="sitemap__count">4</span></a>
+          </div>
+        </div>
+
+        <!-- DASHBOARD CONTRACTOR -->
+        <div class="sitemap__section">
+          <h2 class="sitemap__section-title">Dashboard Impresa</h2>
+          <div class="sitemap__links">
+            <a href="pages/dashboard/contractor/index.html" class="sitemap__link">Home <span class="sitemap__count">1</span></a>
+            <a href="pages/dashboard/contractor/sites.html" class="sitemap__link">Cantieri <span class="sitemap__count">2</span></a>
+            <a href="pages/dashboard/contractor/team.html" class="sitemap__link">Team <span class="sitemap__count">3</span></a>
+            <a href="pages/dashboard/contractor/services.html" class="sitemap__link">Servizi <span class="sitemap__count">4</span></a>
+          </div>
+        </div>
+
+        <!-- DASHBOARD CLIENT -->
+        <div class="sitemap__section">
+          <h2 class="sitemap__section-title">Dashboard Cliente</h2>
+          <div class="sitemap__links">
+            <a href="pages/dashboard/client/index.html" class="sitemap__link">Home <span class="sitemap__count">1</span></a>
+            <a href="pages/dashboard/client/projects.html" class="sitemap__link">Progetti <span class="sitemap__count">2</span></a>
+            <a href="pages/dashboard/client/favorites.html" class="sitemap__link">Preferiti <span class="sitemap__count">3</span></a>
+          </div>
+        </div>
+
+        <!-- ADMIN PANEL -->
+        <div class="sitemap__section">
+          <h2 class="sitemap__section-title">Admin Panel</h2>
+          <div class="sitemap__links">
+            <a href="pages/admin/index.html" class="sitemap__link">Dashboard <span class="sitemap__count">1</span></a>
+            <a href="pages/admin/users.html" class="sitemap__link">Utenti <span class="sitemap__count">2</span></a>
+            <a href="pages/admin/projects.html" class="sitemap__link">Progetti <span class="sitemap__count">3</span></a>
+          </div>
+        </div>
+
+        <!-- PAGINE DI ERRORE -->
+        <div class="sitemap__section">
+          <h2 class="sitemap__section-title">Pagine di Errore</h2>
+          <div class="sitemap__links">
+            <a href="pages/404.html" class="sitemap__link">404 - Non Trovato <span class="sitemap__count">1</span></a>
+            <a href="pages/500.html" class="sitemap__link">500 - Errore Server <span class="sitemap__count">2</span></a>
+          </div>
+        </div>
+
+        <!-- ALTRE PAGINE -->
+        <div class="sitemap__section">
+          <h2 class="sitemap__section-title">Altre Pagine</h2>
+          <div class="sitemap__links">
+            <a href="pages/terms.html" class="sitemap__link">Termini di Servizio <span class="sitemap__count">1</span></a>
+            <a href="pages/privacy.html" class="sitemap__link">Privacy Policy <span class="sitemap__count">2</span></a>
+            <a href="pages/cookies.html" class="sitemap__link">Cookie Policy <span class="sitemap__count">3</span></a>
+            <a href="pages/listings.html" class="sitemap__link">Inserzioni <span class="sitemap__count">4</span></a>
+            <a href="pages/messages.html" class="sitemap__link">Messaggi <span class="sitemap__count">5</span></a>
+            <a href="pages/favorites.html" class="sitemap__link">Preferiti <span class="sitemap__count">6</span></a>
+            <a href="pages/applications.html" class="sitemap__link">Candidature <span class="sitemap__count">7</span></a>
+          </div>
+        </div>
+
+        <!-- STATISTICHE -->
+        <div style="grid-column: 1 / -1; margin-top: var(--space-lg);">
+          <div class="sitemap__stats">
+            <h3 style="margin-bottom: var(--space-md); font-size: 1.3rem;">📊 Statistiche Sitemap</h3>
+            <div class="sitemap__stats-grid">
+              <div class="sitemap__stat">
+                <div class="sitemap__stat-value">42</div>
+                <div class="sitemap__stat-label">Pagine Totali</div>
+              </div>
+              <div class="sitemap__stat">
+                <div class="sitemap__stat-value">9</div>
+                <div class="sitemap__stat-label">Dashboard</div>
+              </div>
+              <div class="sitemap__stat">
+                <div class="sitemap__stat-value">11</div>
+                <div class="sitemap__stat-label">Pagine Pubbliche</div>
+              </div>
+              <div class="sitemap__stat">
+                <div class="sitemap__stat-value">3</div>
+                <div class="sitemap__stat-label">Admin Panel</div>
+              </div>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">
+              ✅ Navbar e Footer centralizzati in file .js per facile manutenzione
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+  </div>
+
+  <script src="js/skyline.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/i18n.js"></script>
+</body>
+</html>

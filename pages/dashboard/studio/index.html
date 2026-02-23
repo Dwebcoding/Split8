@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Studio | SPLit8</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+  <canvas id="skyline-canvas"></canvas>
+  
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="logo">SPLit8</a>
+      <ul class="nav-menu">
+        <li><a href="/account">Account</a></li>
+        <li><a href="#" onclick="SPLit8.auth.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero hero--compact">
+    <div class="container">
+      <h1>Dashboard Studio</h1>
+      <p>Gestisci il tuo studio, progetti e team</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="container" style="margin: 4rem auto; max-width: 1400px;">
+    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+      
+      <!-- SIDEBAR -->
+      <aside class="dashboard-sidebar">
+        <nav class="dashboard-nav">
+          <a href="/pages/dashboard/studio/index.html" class="active">📊 Dashboard</a>
+          <a href="/pages/dashboard/studio/profile.html">🏢 Profilo Studio</a>
+          <a href="/pages/dashboard/studio/team.html">👥 Team</a>
+          <a href="/pages/dashboard/studio/projects.html">📁 Progetti</a>
+          <a href="/pages/dashboard/studio/quotes.html">💰 Preventivi</a>
+          <a href="/pages/dashboard/studio/partners.html">🤝 Partner</a>
+        </nav>
+      </aside>
+
+      <!-- DASHBOARD CONTENT -->
+      <div>
+        
+        <!-- KPI Cards -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">12</h3>
+            <p style="margin: 0; color: #888;">Progetti Attivi</p>
+          </div>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">7</h3>
+            <p style="margin: 0; color: #888;">Membri Team</p>
+          </div>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">5</h3>
+            <p style="margin: 0; color: #888;">Preventivi in Attesa</p>
+          </div>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: var(--accent);">4.9★</h3>
+            <p style="margin: 0; color: #888;">Valutazione Media</p>
+          </div>
+        </div>
+
+        <!-- Progetti Recenti -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <h2 style="margin: 0 0 1.5rem 0;">Progetti Recenti</h2>
+          <div style="display: grid; gap: 1rem;">
+            <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h3 style="margin: 0 0 0.5rem 0;">Residenza Moderna Milano</h3>
+                <p style="margin: 0; color: #888;">Cliente: Famiglia Rossi · Budget: €180.000</p>
+              </div>
+              <span class="badge" style="padding: 0.5rem 1rem; background: rgba(46,213,115,0.2); color: #2ed573; border-radius: 20px;">In Corso</span>
+            </div>
+            <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h3 style="margin: 0 0 0.5rem 0;">Uffici Commerciali Torino</h3>
+                <p style="margin: 0; color: #888;">Cliente: Studio XYZ · Budget: €320.000</p>
+              </div>
+              <span class="badge" style="padding: 0.5rem 1rem; background: rgba(255,159,67,0.2); color: #ff9f43; border-radius: 20px;">Progettazione</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Activity -->
+        <div class="card">
+          <h2 style="margin: 0 0 1.5rem 0;">Attività Team</h2>
+          <div style="display: grid; gap: 1rem;">
+            <div style="display: flex; gap: 1rem; align-items: start;">
+              <span style="font-size: 1.5rem;">👷</span>
+              <div>
+                <p style="margin: 0 0 0.25rem 0;"><strong>Marco Bianchi</strong> ha aggiornato il progetto "Residenza Moderna Milano"</p>
+                <p style="margin: 0; font-size: 0.85rem; color: #888;">2 ore fa</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: start;">
+              <span style="font-size: 1.5rem;">💬</span>
+              <div>
+                <p style="margin: 0 0 0.25rem 0;"><strong>Lucia Verdi</strong> ha risposto a un messaggio cliente</p>
+                <p style="margin: 0; font-size: 0.85rem; color: #888;">5 ore fa</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: start;">
+              <span style="font-size: 1.5rem;">📄</span>
+              <div>
+                <p style="margin: 0 0 0.25rem 0;"><strong>Giovanni Neri</strong> ha inviato un preventivo</p>
+                <p style="margin: 0; font-size: 0.85rem; color: #888;">1 giorno fa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+
+  <script src="../../../js/router.js"></script>
+  <script src="../../../js/skyline.js"></script>
+  <script src="../../../js/api.js"></script>
+  <script>
+    // TODO: Load dashboard data
+    window.addEventListener('DOMContentLoaded', async () => {
+      if (!SPLit8.auth.isAuthenticated() || SPLit8.auth.getUserType() !== 'studio') {
+        window.location.href = '/pages/login.html';
+      }
+    });
+  </script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

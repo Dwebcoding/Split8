@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Pagina Non Trovata | SPLit8</title>
+  <script>
+    // SPA Router 404 redirect per GitHub Pages
+    // Questo file reindirizza tutte le richieste 404 al index.html
+    // in modo che il router lato client possa gestire la navigazione
+    
+    (function() {
+      const path = window.location.pathname;
+      const isGitHubPages = path.includes('/SPLit');
+      
+      if (isGitHubPages && !path.endsWith('/')) {
+        // Salva il path richiesto e reindirizza a index.html
+        const originalPath = path.replace(/\/$/, '');
+        sessionStorage.setItem('redirect', originalPath);
+        window.location.replace('/SPLit/');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p>Reindirizzamento in corso...</p>
+</body>
+</html>

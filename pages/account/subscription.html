@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abbonamento · SPLit8</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <canvas id="skyline-canvas" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <!-- Navbar Component -->`n    <div id="navbar-placeholder"></div>
+
+    <section class="hero hero--compact">
+      <div class="hero__background">
+        <div class="hero__gradient"></div>
+        <div class="hero__grid"></div>
+      </div>
+      
+      <div class="hero__content">
+        <h1 class="hero__title">Il Tuo Abbonamento</h1>
+      </div>
+    </section>
+
+    <main class="main">
+      <section class="section" style="max-width: 900px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+          <!-- Sidebar -->
+          <aside class="account-sidebar">
+            <nav class="account-nav">
+              <a href="../account.html" class="account-nav__link">Profilo</a>
+              <a href="subscription.html" class="account-nav__link active">Abbonamento</a>
+              <a href="#" class="account-nav__link">Notifiche</a>
+              <a href="#" class="account-nav__link">Privacy e Dati</a>
+              <a href="#" class="account-nav__link">Sicurezza</a>
+              <a href="#" class="account-nav__link">Disattiva Account</a>
+            </nav>
+          </aside>
+
+          <!-- Content -->
+          <div class="account-content">
+            <h2>Piano Attuale</h2>
+            <div class="card" style="margin-top: 2rem;">
+              <h3 style="margin-bottom: 1rem;">Pro</h3>
+              <p><strong>Prezzo:</strong> €49/mese</p>
+              <p><strong>Rinnovamento:</strong> 15 Febbraio 2026</p>
+              <p><strong>Status:</strong> <span style="background: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px;">Attivo</span></p>
+              <p style="margin-top: 1.5rem;"><strong>Benefici inclusi:</strong></p>
+              <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+                <li>Profilo prioritario nella ricerca</li>
+                <li>Fino a 50 progetti nel portfolio</li>
+                <li>Messaggistica illimitata</li>
+                <li>Analytics avanzate</li>
+                <li>Supporto prioritario</li>
+              </ul>
+              <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                <button class="btn btn--primary">Cambia Piano</button>
+                <button class="btn btn--outline">Cancella Abbonamento</button>
+              </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 1px solid #ddd;">
+
+            <h2>Storico Pagamenti</h2>
+            <table style="width: 100%; margin-top: 1rem; border-collapse: collapse;">
+              <thead>
+                <tr style="border-bottom: 2px solid #ddd;">
+                  <th style="text-align: left; padding: 0.5rem;">Data</th>
+                  <th style="text-align: left; padding: 0.5rem;">Importo</th>
+                  <th style="text-align: left; padding: 0.5rem;">Status</th>
+                  <th style="text-align: left; padding: 0.5rem;">Ricevuta</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 0.5rem;">15 Gen 2026</td>
+                  <td style="padding: 0.5rem;">€49.00</td>
+                  <td style="padding: 0.5rem;"><span style="background: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px;">Completato</span></td>
+                  <td style="padding: 0.5rem;"><a href="#" style="color: var(--primary-color);">Scarica</a></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 0.5rem;">15 Dic 2025</td>
+                  <td style="padding: 0.5rem;">€49.00</td>
+                  <td style="padding: 0.5rem;"><span style="background: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px;">Completato</span></td>
+                  <td style="padding: 0.5rem;"><a href="#" style="color: var(--primary-color);">Scarica</a></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 0.5rem;">15 Nov 2025</td>
+                  <td style="padding: 0.5rem;">€49.00</td>
+                  <td style="padding: 0.5rem;"><span style="background: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px;">Completato</span></td>
+                  <td style="padding: 0.5rem;"><a href="#" style="color: var(--primary-color);">Scarica</a></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 1px solid #ddd;">
+
+            <h2>Metodo di Pagamento</h2>
+            <div class="card" style="margin-top: 2rem;">
+              <p><strong>Carta di Credito</strong></p>
+              <p>Visa terminante con 4242</p>
+              <p style="margin-top: 1rem; color: #666;">Scade il 12/2027</p>
+              <div style="margin-top: 2rem;">
+                <button class="btn btn--primary">Modifica Metodo di Pagamento</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+  </div>
+
+  <script src="../../js/router.js"></script>
+  <script src="../../js/skyline.js"></script>
+  <script src="../../js/navbar.js"></script>
+  <script src="../../js/footer.js"></script>
+</body>
+</html>

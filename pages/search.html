@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPLit8 - Cerca inserzioni</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <canvas id="skyline-canvas" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <!-- Navbar Component -->`n    <div id="navbar-placeholder"></div>
+
+    <section class="hero hero--compact">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Ricerca avanzata</p>
+        <h2 class="hero__title">Trova sopralluoghi e lavori tecnici in modo rapido.</h2>
+        <p class="hero__subtitle">Filtri intelligenti, coordinate precise e risultati ordinati per priorità.</p>
+        <div class="hero__actions">
+          <a class="btn" href="listings.html#lista">Apri lista</a>
+          <a class="btn btn--ghost" href="listings.html#crea">Pubblica</a>
+        </div>
+      </div>
+    </section>
+
+    <main class="content page-grid">
+      <section class="card">
+        <header class="card__header">
+          <h2>Filtri rapidi</h2>
+          <p>Applica criteri principali per affinare le ricerche.</p>
+        </header>
+        <div class="two-col">
+          <label class="field">
+            <span>Località</span>
+            <input type="text" placeholder="Es. Milano" />
+          </label>
+          <label class="field">
+            <span>Tipologia lavoro</span>
+            <input type="text" placeholder="Es. Perizia" />
+          </label>
+          <label class="field">
+            <span>Data</span>
+            <input type="date" />
+          </label>
+          <label class="field">
+            <span>Raggio (km)</span>
+            <input type="number" placeholder="Es. 25" />
+          </label>
+        </div>
+        <div class="actions">
+          <button class="btn">Cerca</button>
+          <button class="btn btn--ghost">Reset</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <header class="card__header">
+          <h2>Risultati suggeriti</h2>
+          <p>Selezioni in base ai tuoi ultimi progetti.</p>
+        </header>
+        <div class="list">
+          <article class="listing">
+            <strong>Rilievo strutturale</strong>
+            <div class="listing__meta">
+              <span>Milano • 2 km</span>
+              <span>Residenziale</span>
+              <span>Priorità alta</span>
+            </div>
+            <p>Verifica di solai e travi con documentazione completa.</p>
+            <div class="listing__actions">
+              <a class="btn btn--ghost" href="listing.html">Dettagli</a>
+            </div>
+          </article>
+          <article class="listing">
+            <strong>Perizia impianti</strong>
+            <div class="listing__meta">
+              <span>Roma • 5 km</span>
+              <span>Commerciale</span>
+              <span>Nuovo</span>
+            </div>
+            <p>Analisi impianto HVAC e report per certificazione.</p>
+            <div class="listing__actions">
+              <a class="btn btn--ghost" href="listing.html">Dettagli</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+  </div>
+
+  <div class="auth-modal" id="authModal" aria-hidden="true" role="dialog" aria-label="Iscrizione utenti">
+    <div class="auth-modal__panel">
+      <button class="panel__close" id="closeAuth" aria-label="Chiudi iscrizione">✕</button>
+      <div class="auth-modal__header">
+        <h3>Iscrizione / Accesso</h3>
+        <p>Crea il tuo profilo professionale o accedi con le credenziali salvate.</p>
+      </div>
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab is-active" data-auth-mode="register">Iscriviti</button>
+        <button type="button" class="auth-tab" data-auth-mode="login">Accedi</button>
+      </div>
+      <form id="authForm" class="auth-form" novalidate>
+        <label class="field">
+          <span>Nome completo *</span>
+          <input type="text" name="fullName" placeholder="Es. Luca Bianchi" required />
+          <small class="error"></small>
+        </label>
+        <label class="field">
+          <span>Email *</span>
+          <input type="email" name="email" placeholder="nome@studio.it" required />
+          <small class="error"></small>
+        </label>
+        <label class="field">
+          <span>Password *</span>
+          <input type="password" name="password" placeholder="Min. 6 caratteri" required />
+          <small class="error"></small>
+        </label>
+        <div class="actions">
+          <button type="submit" class="btn">Salva profilo</button>
+          <button type="button" class="btn btn--ghost" id="authLogout">Esci</button>
+        </div>
+        <p class="muted" id="authStatus"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/router.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/footer.js"></script>
+</body>
+</html>

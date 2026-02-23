@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servizi Offerti | SPLit8</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+  <canvas id="skyline-canvas"></canvas>
+  
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="logo">SPLit8</a>
+      <ul class="nav-menu">
+        <li><a href="/account">Account</a></li>
+        <li><a href="#" onclick="SPLit8.auth.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero hero--compact">
+    <div class="container">
+      <h1>Servizi Offerti</h1>
+    </div>
+  </section>
+
+  <main class="container" style="margin: 4rem auto; max-width: 1400px;">
+    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+      
+      <aside class="dashboard-sidebar">
+        <nav class="dashboard-nav">
+          <a href="/pages/dashboard/contractor/index.html">📊 Dashboard</a>
+          <a href="/pages/dashboard/contractor/sites.html">🏗️ Cantieri</a>
+          <a href="/pages/dashboard/contractor/team.html">👷 Squadre</a>
+          <a href="/pages/dashboard/contractor/services.html" class="active">🔧 Servizi</a>
+        </nav>
+      </aside>
+
+      <div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 2rem;">
+          <h2 style="margin: 0;">Catalogo Servizi</h2>
+          <button class="btn--primary">+ Aggiungi Servizio</button>
+        </div>
+
+        <div style="display: grid; gap: 1.5rem;">
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+              <div>
+                <h3 style="margin: 0 0 0.5rem 0;">Costruzione Edifici Residenziali</h3>
+                <p style="margin: 0; color: #888;">Costruzione chiavi in mano di edifici residenziali con materiali di qualità</p>
+              </div>
+              <span class="badge" style="padding: 0.5rem 1rem; background: rgba(46,213,115,0.2); color: #2ed573; border-radius: 20px;">Attivo</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Tariffa Indicativa</p>
+                <p style="margin: 0.25rem 0 0 0; font-weight: bold;">€800/mq - €1.200/mq</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Progetti Completati</p>
+                <p style="margin: 0.25rem 0 0 0;">18</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Valutazione</p>
+                <p style="margin: 0.25rem 0 0 0;">⭐ 4.9/5</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+              <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Modifica</button>
+              <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Statistiche</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+              <div>
+                <h3 style="margin: 0 0 0.5rem 0;">Ristrutturazioni Complete</h3>
+                <p style="margin: 0; color: #888;">Ristrutturazioni edilizie complete con progettazione e direzione lavori</p>
+              </div>
+              <span class="badge" style="padding: 0.5rem 1rem; background: rgba(46,213,115,0.2); color: #2ed573; border-radius: 20px;">Attivo</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Tariffa Indicativa</p>
+                <p style="margin: 0.25rem 0 0 0; font-weight: bold;">€500/mq - €900/mq</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Progetti Completati</p>
+                <p style="margin: 0.25rem 0 0 0;">32</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Valutazione</p>
+                <p style="margin: 0.25rem 0 0 0;">⭐ 4.8/5</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+              <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Modifica</button>
+              <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Statistiche</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+              <div>
+                <h3 style="margin: 0 0 0.5rem 0;">Impianti Elettrici e Idraulici</h3>
+                <p style="margin: 0; color: #888;">Installazione e manutenzione impianti elettrici e idraulici a norma</p>
+              </div>
+              <span class="badge" style="padding: 0.5rem 1rem; background: rgba(46,213,115,0.2); color: #2ed573; border-radius: 20px;">Attivo</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Tariffa Indicativa</p>
+                <p style="margin: 0.25rem 0 0 0; font-weight: bold;">€45/ora - €65/ora</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Progetti Completati</p>
+                <p style="margin: 0.25rem 0 0 0;">56</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Valutazione</p>
+                <p style="margin: 0.25rem 0 0 0;">⭐ 4.7/5</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+              <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Modifica</button>
+              <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Statistiche</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+
+  <script src="../../../js/router.js"></script>
+  <script src="../../../js/skyline.js"></script>
+  <script src="../../../js/api.js"></script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

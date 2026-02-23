@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPLit8 - Messaggi</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <canvas id="skyline" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand__mark"></span>
+        <div class="brand__text">
+          <h1>SPLit8</h1>
+          <p>Messaggi e collaborazioni</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="listings.html#lista">Inserzioni</a>
+        <a href="favorites.html">Favoriti</a>
+        <a href="applications.html">Candidature</a>
+        <button class="nav__cta" id="openAuth">Account</button>
+      </nav>
+    </header>
+
+    <section class="hero hero--compact">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Inbox</p>
+        <h2 class="hero__title">Gestisci conversazioni con aziende e professionisti.</h2>
+        <p class="hero__subtitle">Tutte le comunicazioni operative in un'unica vista.</p>
+      </div>
+    </section>
+
+    <main class="content page-grid">
+      <section class="card">
+        <header class="card__header">
+          <h2>Conversazioni attive</h2>
+          <p>Thread con priorità e ultimi aggiornamenti.</p>
+        </header>
+        <ul class="list-compact">
+          <li>Studio Delta · Rilievo strutturale · Risposta 2h fa</li>
+          <li>GeoLab Pro · Perizia impianti · Nuovo messaggio</li>
+          <li>Infra Tech · Stima energetica · In attesa</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <header class="card__header">
+          <h2>Risposta rapida</h2>
+          <p>Invia messaggi operativi in modo immediato.</p>
+        </header>
+        <label class="field">
+          <span>Messaggio</span>
+          <input type="text" placeholder="Scrivi un aggiornamento..." />
+        </label>
+        <div class="actions">
+          <button class="btn">Invia</button>
+          <button class="btn btn--ghost">Salva bozza</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+  </div>
+
+  <div class="auth-modal" id="authModal" aria-hidden="true" role="dialog" aria-label="Iscrizione utenti">
+    <div class="auth-modal__panel">
+      <button class="panel__close" id="closeAuth" aria-label="Chiudi iscrizione">✕</button>
+      <div class="auth-modal__header">
+        <h3>Iscrizione / Accesso</h3>
+        <p>Crea il tuo profilo professionale o accedi con le credenziali salvate.</p>
+      </div>
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab is-active" data-auth-mode="register">Iscriviti</button>
+        <button type="button" class="auth-tab" data-auth-mode="login">Accedi</button>
+      </div>
+      <form id="authForm" class="auth-form" novalidate>
+        <label class="field">
+          <span>Nome completo *</span>
+          <input type="text" name="fullName" placeholder="Es. Luca Bianchi" required />
+          <small class="error"></small>
+        </label>
+        <label class="field">
+          <span>Email *</span>
+          <input type="email" name="email" placeholder="nome@studio.it" required />
+          <small class="error"></small>
+        </label>
+        <label class="field">
+          <span>Password *</span>
+          <input type="password" name="password" placeholder="Min. 6 caratteri" required />
+          <small class="error"></small>
+        </label>
+        <div class="actions">
+          <button type="submit" class="btn">Salva profilo</button>
+          <button type="button" class="btn btn--ghost" id="authLogout">Esci</button>
+        </div>
+        <p class="muted" id="authStatus"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/footer.js"></script>
+</body>
+</html>

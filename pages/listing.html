@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPLit8 - Dettaglio inserzione</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <canvas id="skyline" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand__mark"></span>
+        <div class="brand__text">
+          <h1>SPLit8</h1>
+          <p>Piattaforma per architetti e studi tecnici</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="search.html">Cerca</a>
+        <a href="listings.html#lista">Inserzioni</a>
+        <a href="companies.html">Aziende</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <button class="nav__cta" id="openAuth">Iscriviti</button>
+      </nav>
+    </header>
+
+    <section class="hero hero--compact">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Dettaglio</p>
+        <h2 class="hero__title">Rilievo strutturale • Milano</h2>
+        <p class="hero__subtitle">Inserzione con priorità alta, accesso programmato e documentazione tecnica.</p>
+        <div class="hero__actions">
+          <a class="btn" href="messages.html">Contatta referente</a>
+          <a class="btn btn--ghost" href="applications.html">Candidati</a>
+        </div>
+      </div>
+    </section>
+
+    <main class="content page-grid">
+      <section class="card">
+        <header class="card__header">
+          <h2>Dettagli tecnici</h2>
+          <p>Informazioni essenziali per organizzare il sopralluogo.</p>
+        </header>
+        <div class="section-grid">
+          <div class="card card--compact">
+            <span class="pill">Coordinate</span>
+            <h3>45.4642, 9.1900</h3>
+            <p class="muted">Centro storico, accesso autorizzato.</p>
+          </div>
+          <div class="card card--compact">
+            <span class="pill">Tipologia</span>
+            <h3>Residenziale</h3>
+            <p class="muted">Edificio anni 70, 5 livelli.</p>
+          </div>
+          <div class="card card--compact">
+            <span class="pill">Note</span>
+            <h3>Accesso con permesso</h3>
+            <p class="muted">Disponibile fascia 9:00 - 12:00.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <header class="card__header">
+          <h2>Richiesta</h2>
+          <p>Scadenze, budget indicativo e documenti richiesti.</p>
+        </header>
+        <ul class="list-compact">
+          <li>Scadenza: 5 giorni lavorativi</li>
+          <li>Budget: €1.200 - €1.800</li>
+          <li>Documenti: planimetrie + fotografie</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+  </div>
+
+  <div class="auth-modal" id="authModal" aria-hidden="true" role="dialog" aria-label="Iscrizione utenti">
+    <div class="auth-modal__panel">
+      <button class="panel__close" id="closeAuth" aria-label="Chiudi iscrizione">✕</button>
+      <div class="auth-modal__header">
+        <h3>Iscrizione / Accesso</h3>
+        <p>Crea il tuo profilo professionale o accedi con le credenziali salvate.</p>
+      </div>
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab is-active" data-auth-mode="register">Iscriviti</button>
+        <button type="button" class="auth-tab" data-auth-mode="login">Accedi</button>
+      </div>
+      <form id="authForm" class="auth-form" novalidate>
+        <label class="field">
+          <span>Nome completo *</span>
+          <input type="text" name="fullName" placeholder="Es. Luca Bianchi" required />
+          <small class="error"></small>
+        </label>
+        <label class="field">
+          <span>Email *</span>
+          <input type="email" name="email" placeholder="nome@studio.it" required />
+          <small class="error"></small>
+        </label>
+        <label class="field">
+          <span>Password *</span>
+          <input type="password" name="password" placeholder="Min. 6 caratteri" required />
+          <small class="error"></small>
+        </label>
+        <div class="actions">
+          <button type="submit" class="btn">Salva profilo</button>
+          <button type="button" class="btn btn--ghost" id="authLogout">Esci</button>
+        </div>
+        <p class="muted" id="authStatus"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/footer.js"></script>
+</body>
+</html>

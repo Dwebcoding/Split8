@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profilo Specialista | SPLit8</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+  <canvas id="skyline-canvas"></canvas>
+  
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="logo">SPLit8</a>
+      <ul class="nav-menu">
+        <li><a href="/account">Account</a></li>
+        <li><a href="#" onclick="SPLit8.auth.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero hero--compact">
+    <div class="container">
+      <h1>Profilo Professionale</h1>
+    </div>
+  </section>
+
+  <main class="container" style="margin: 4rem auto; max-width: 1400px;">
+    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+      
+      <aside class="dashboard-sidebar">
+        <nav class="dashboard-nav">
+          <a href="/pages/dashboard/specialist/index.html">📊 Dashboard</a>
+          <a href="/pages/dashboard/specialist/commissions.html">📋 Incarichi</a>
+          <a href="/pages/dashboard/specialist/profile.html" class="active">👤 Profilo</a>
+          <a href="/pages/dashboard/specialist/messages.html">💬 Messaggi</a>
+        </nav>
+      </aside>
+
+      <div class="card">
+        <h2 style="margin: 0 0 2rem 0;">Informazioni Professionali</h2>
+        
+        <form id="profileForm">
+          <div class="form-group">
+            <label>Nome e Cognome</label>
+            <input type="text" value="Ing. Mario Rossi" required>
+          </div>
+
+          <div class="form-group">
+            <label>Specializzazione Principale</label>
+            <select required>
+              <option value="">Seleziona...</option>
+              <option value="perizie" selected>Perizie e Stime</option>
+              <option value="direzione">Direzione Lavori</option>
+              <option value="sicurezza">Coordinatore Sicurezza</option>
+              <option value="certificazioni">Certificazioni Energetiche</option>
+              <option value="collaudi">Collaudi</option>
+              <option value="topografia">Topografia</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Ordine Professionale</label>
+            <input type="text" value="Ordine degli Ingegneri di Milano - Matricola 4582">
+          </div>
+
+          <div class="form-group">
+            <label>Anni di Esperienza</label>
+            <input type="number" value="12" min="0">
+          </div>
+
+          <div class="form-group">
+            <label>Aree Geografiche di Intervento</label>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.5rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem;">
+                <input type="checkbox" checked> Lombardia
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem;">
+                <input type="checkbox" checked> Piemonte
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem;">
+                <input type="checkbox"> Emilia-Romagna
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Tariffe Indicative</label>
+            <div style="display: grid; gap: 1rem; margin-top: 0.5rem;">
+              <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem;">
+                <input type="text" value="Perizia immobiliare standard" readonly>
+                <input type="text" value="€850 - €1.200">
+              </div>
+              <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem;">
+                <input type="text" value="Certificazione energetica APE" readonly>
+                <input type="text" value="€300 - €500">
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+            <button type="submit" class="btn--primary">Salva Modifiche</button>
+            <a href="/pages/dashboard/specialist/index.html" class="btn--outline">Annulla</a>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+
+  <script src="../../../js/router.js"></script>
+  <script src="../../../js/skyline.js"></script>
+  <script src="../../../js/api.js"></script>
+  <script>
+    document.getElementById('profileForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      console.log('TODO: Update specialist profile');
+      alert('Profilo aggiornato!');
+    });
+  </script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

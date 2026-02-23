@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Miei Progetti | SPLit8</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+  <canvas id="skyline-canvas"></canvas>
+  
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="logo">SPLit8</a>
+      <ul class="nav-menu">
+        <li><a href="/account">Account</a></li>
+        <li><a href="#" onclick="SPLit8.auth.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero hero--compact">
+    <div class="container">
+      <h1>I Miei Progetti</h1>
+    </div>
+  </section>
+
+  <main class="container" style="margin: 4rem auto; max-width: 1400px;">
+    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+      
+      <aside class="dashboard-sidebar">
+        <nav class="dashboard-nav">
+          <a href="/pages/dashboard/client/index.html">📊 Dashboard</a>
+          <a href="/pages/dashboard/client/projects.html" class="active">📁 I Miei Progetti</a>
+          <a href="/pages/dashboard/client/favorites.html">⭐ Preferiti</a>
+        </nav>
+      </aside>
+
+      <div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 2rem;">
+          <div style="display: flex; gap: 1rem;">
+            <button class="btn--primary active">Tutti (5)</button>
+            <button class="btn--outline">In Corso (2)</button>
+            <button class="btn--outline">Completati (3)</button>
+          </div>
+          <button class="btn--primary">+ Nuova Richiesta</button>
+        </div>
+
+        <div style="display: grid; gap: 1.5rem;">
+          
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+              <div>
+                <h3 style="margin: 0 0 0.5rem 0;">Ristrutturazione Appartamento Milano</h3>
+                <p style="margin: 0; color: #888;">Professionista: Studio Architettura Milano · Pubblicata: 10 Mar 2025</p>
+              </div>
+              <span class="badge" style="padding: 0.5rem 1rem; background: rgba(46,213,115,0.2); color: #2ed573; border-radius: 20px;">In Corso</span>
+            </div>
+            <p style="margin: 0 0 1rem 0; color: #ccc;">Ristrutturazione completa appartamento 85mq con riorganizzazione spazi, nuovo impianto elettrico e idraulico, pavimenti e finiture di qualità.</p>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Budget</p>
+                <p style="margin: 0.25rem 0 0 0;">€45.000</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Preventivi Ricevuti</p>
+                <p style="margin: 0.25rem 0 0 0;">5</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Inizio Lavori</p>
+                <p style="margin: 0.25rem 0 0 0;">15 Apr 2025</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Fine Prevista</p>
+                <p style="margin: 0.25rem 0 0 0;">30 Giu 2025</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+              <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Gestisci Progetto</button>
+              <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Messaggi (3)</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+              <div>
+                <h3 style="margin: 0 0 0.5rem 0;">Progettazione Giardino Villa</h3>
+                <p style="margin: 0; color: #888;">In attesa di selezione professionista · Pubblicata: 5 Mag 2025</p>
+              </div>
+              <span class="badge" style="padding: 0.5rem 1rem; background: rgba(255,159,67,0.2); color: #ff9f43; border-radius: 20px;">In Valutazione</span>
+            </div>
+            <p style="margin: 0 0 1rem 0; color: #ccc;">Progettazione e realizzazione giardino 300mq con area relax, prato, piante ornamentali e sistema irrigazione automatico.</p>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Budget</p>
+                <p style="margin: 0.25rem 0 0 0;">€15.000</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Preventivi Ricevuti</p>
+                <p style="margin: 0.25rem 0 0 0;">8</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Scadenza Offerte</p>
+                <p style="margin: 0.25rem 0 0 0;">20 Mag 2025</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Stato</p>
+                <p style="margin: 0.25rem 0 0 0;">Raccolta preventivi</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+              <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Confronta Preventivi (8)</button>
+              <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Modifica Richiesta</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+              <div>
+                <h3 style="margin: 0 0 0.5rem 0;">Certificazione Energetica APE</h3>
+                <p style="margin: 0; color: #888;">Professionista: Ing. Mario Rossi · Completata: 28 Feb 2025</p>
+              </div>
+              <span class="badge" style="padding: 0.5rem 1rem; background: rgba(46,213,115,0.2); color: #2ed573; border-radius: 20px;">Completato</span>
+            </div>
+            <p style="margin: 0 0 1rem 0; color: #ccc;">Certificazione energetica per vendita appartamento, con sopralluogo e rilascio attestato APE.</p>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Importo Pagato</p>
+                <p style="margin: 0.25rem 0 0 0;">€350</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Data Completamento</p>
+                <p style="margin: 0.25rem 0 0 0;">28 Feb 2025</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Valutazione</p>
+                <p style="margin: 0.25rem 0 0 0;">⭐⭐⭐⭐⭐</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Documenti</p>
+                <p style="margin: 0.25rem 0 0 0;">APE.pdf</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+              <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Scarica Certificato</button>
+              <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Vedi Dettagli</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+
+  <script src="../../../js/router.js"></script>
+  <script src="../../../js/skyline.js"></script>
+  <script src="../../../js/api.js"></script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

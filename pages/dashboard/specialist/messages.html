@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messaggi | SPLit8</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+  <canvas id="skyline-canvas"></canvas>
+  
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="logo">SPLit8</a>
+      <ul class="nav-menu">
+        <li><a href="/account">Account</a></li>
+        <li><a href="#" onclick="SPLit8.auth.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero hero--compact">
+    <div class="container">
+      <h1>Messaggi</h1>
+    </div>
+  </section>
+
+  <main class="container" style="margin: 4rem auto; max-width: 1400px;">
+    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+      
+      <aside class="dashboard-sidebar">
+        <nav class="dashboard-nav">
+          <a href="/pages/dashboard/specialist/index.html">📊 Dashboard</a>
+          <a href="/pages/dashboard/specialist/commissions.html">📋 Incarichi</a>
+          <a href="/pages/dashboard/specialist/profile.html">👤 Profilo</a>
+          <a href="/pages/dashboard/specialist/messages.html" class="active">💬 Messaggi</a>
+        </nav>
+      </aside>
+
+      <div class="card" style="padding: 0; height: 600px; display: flex;">
+        <div style="width: 350px; border-right: 1px solid rgba(255,255,255,0.1); padding: 1.5rem; overflow-y: auto;">
+          <h3 style="margin: 0 0 1rem 0;">Conversazioni</h3>
+          <div style="display: grid; gap: 0.5rem;">
+            <div style="padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer;">
+              <p style="margin: 0 0 0.5rem 0; font-weight: bold;">Famiglia Verdi</p>
+              <p style="margin: 0; font-size: 0.85rem; color: #888;">Quando possiamo fissare il sopralluogo?</p>
+            </div>
+            <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; cursor: pointer;">
+              <p style="margin: 0 0 0.5rem 0; font-weight: bold;">Studio Architettura</p>
+              <p style="margin: 0; font-size: 0.85rem; color: #888;">Grazie per la disponibilità!</p>
+            </div>
+          </div>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column;">
+          <div style="padding: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <h3 style="margin: 0;">Famiglia Verdi</h3>
+          </div>
+          <div style="flex: 1; padding: 1.5rem; overflow-y: auto;">
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; justify-content: flex-start;">
+                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 12px; max-width: 70%;">
+                  <p style="margin: 0;">Buongiorno, avremmo bisogno di una perizia per un immobile a Milano.</p>
+                </div>
+              </div>
+              <div style="display: flex; justify-content: flex-end;">
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1rem; border-radius: 12px; max-width: 70%;">
+                  <p style="margin: 0;">Buongiorno! Sarò felice di aiutarvi. Potete inviarmi l'indirizzo?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+            <form style="display: flex; gap: 1rem;">
+              <input type="text" placeholder="Scrivi un messaggio..." style="flex: 1; padding: 1rem; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: white;">
+              <button type="submit" class="btn--primary">Invia</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+
+  <script src="../../../js/router.js"></script>
+  <script src="../../../js/skyline.js"></script>
+  <script src="../../../js/api.js"></script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

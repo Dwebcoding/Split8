@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verifica Email | SPLit8</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <canvas id="skyline-canvas"></canvas>
+  
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="logo">SPLit8</a>
+      <ul class="nav-menu">
+        <li><a href="/pages/login.html">Accedi</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero hero--compact">
+    <div class="container">
+      <h1>Verifica il Tuo Account</h1>
+    </div>
+  </section>
+
+  <main class="container" style="margin: 4rem auto; max-width: 600px;">
+    
+    <!-- Success State -->
+    <div id="successState" class="card" style="text-align: center; display: none;">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+      <h2 style="margin-bottom: 1rem;">Email Verificata con Successo!</h2>
+      <p style="margin-bottom: 2rem; color: #888;">Il tuo account è stato attivato. Ora puoi accedere alla piattaforma.</p>
+      <a href="/pages/login.html" class="btn--primary" style="padding: 1rem 2rem;">Vai al Login</a>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loadingState" class="card" style="text-align: center;">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">⏳</div>
+      <h2 style="margin-bottom: 1rem;">Verifica in Corso...</h2>
+      <p style="color: #888;">Attendere prego, stiamo verificando il tuo account.</p>
+    </div>
+
+    <!-- Error State -->
+    <div id="errorState" class="card" style="text-align: center; display: none;">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">❌</div>
+      <h2 style="margin-bottom: 1rem;">Errore nella Verifica</h2>
+      <p style="margin-bottom: 2rem; color: #888;">Il link di verifica non è valido o è scaduto. Richiedi un nuovo link di verifica.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <button id="resendBtn" class="btn--primary" style="padding: 1rem 2rem;">Invia Nuovo Link</button>
+        <a href="/pages/support.html" class="btn--outline" style="padding: 1rem 2rem;">Contatta il Supporto</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+
+  <script src="../js/router.js"></script>
+  <script src="../js/skyline.js"></script>
+  <script>
+    // API helper
+    const API_BASE = 'http://localhost:3000';
+    
+    async function apiCall(endpoint, options = {}) {
+      try {
+        const response = await fetch(`${API_BASE}${endpoint}`, {
+          headers: { 'Content-Type': 'application/json' },
+          ...options
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'Errore richiesta');
+        return data;
+      } catch (err) {
+        throw err;
+      }
+    }
+
+    // Get token from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+
+    const loadingState = document.getElementById('loadingState');
+    const successState = document.getElementById('successState');
+    const errorState = document.getElementById('errorState');
+    const errorMessage = errorState.querySelector('p');
+
+    // Verifica email con token
+    async function verifyEmail() {
+      if (!token || token.length < 20) {
+        loadingState.style.display = 'none';
+        errorState.style.display = 'block';
+        errorMessage.textContent = 'Link di verifica non valido. Richiedi un nuovo link.';
+        return;
+      }
+
+      try {
+        const result = await apiCall('/api/verify-email', {
+          method: 'POST',
+          body: JSON.stringify({ token })
+        });
+
+        loadingState.style.display = 'none';
+        successState.style.display = 'block';
+        console.log('✅ Email verified:', result.message);
+      } catch (error) {
+        loadingState.style.display = 'none';
+        errorState.style.display = 'block';
+        
+        if (error.message.includes('scaduto')) {
+          errorMessage.textContent = 'Il link di verifica è scaduto. Richiedi un nuovo link.';
+        } else {
+          errorMessage.textContent = error.message || 'Errore nella verifica. Richiedi un nuovo link.';
+        }
+        
+        console.error('❌ Verification error:', error);
+      }
+    }
+
+    // Avvia verifica automatica
+    verifyEmail();
+
+    // Resend verification email
+    document.getElementById('resendBtn')?.addEventListener('click', async () => {
+      const email = prompt('Inserisci la tua email per ricevere un nuovo link:');
+      if (!email) return;
+
+      try {
+        const btn = document.getElementById('resendBtn');
+        btn.textContent = 'Invio in corso...';
+        btn.disabled = true;
+
+        const result = await apiCall('/api/resend-verification', {
+          method: 'POST',
+          body: JSON.stringify({ email: email.trim().toLowerCase() })
+        });
+
+        alert('✅ ' + result.message);
+        btn.textContent = 'Email Inviata';
+      } catch (error) {
+        alert('❌ ' + (error.message || 'Errore invio email'));
+        const btn = document.getElementById('resendBtn');
+        btn.textContent = 'Invia Nuovo Link';
+        btn.disabled = false;
+      }
+    });
+  </script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/footer.js"></script>
+</body>
+</html>

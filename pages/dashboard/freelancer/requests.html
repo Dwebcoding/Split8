@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Richieste Ricevute · SPLit8</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <canvas id="skyline-canvas" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <!-- Navbar Component -->`n    <div id="navbar-placeholder"></div>
+
+    <section class="hero hero--compact">
+      <div class="hero__background">
+        <div class="hero__gradient"></div>
+        <div class="hero__grid"></div>
+      </div>
+      
+      <div class="hero__content">
+        <h1 class="hero__title">Richieste di Preventivo</h1>
+      </div>
+    </section>
+
+    <main class="main">
+      <section class="section" style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 2rem;">
+          <!-- Sidebar Dashboard -->
+          <aside class="dashboard-sidebar">
+            <nav class="dashboard-nav">
+              <a href="index.html" class="dashboard-nav__link">Dashboard</a>
+              <a href="projects.html" class="dashboard-nav__link">Progetti</a>
+              <a href="requests.html" class="dashboard-nav__link active">Richieste</a>
+              <a href="portfolio.html" class="dashboard-nav__link">Portfolio</a>
+              <a href="messages.html" class="dashboard-nav__link">Messaggi</a>
+              <a href="reviews.html" class="dashboard-nav__link">Valutazioni</a>
+              <a href="alerts.html" class="dashboard-nav__link">Alert</a>
+              <a href="analytics.html" class="dashboard-nav__link">Analytics</a>
+              <a href="profile.html" class="dashboard-nav__link">Profilo</a>
+              <a href="../account.html" class="dashboard-nav__link">Account</a>
+            </nav>
+          </aside>
+
+          <!-- Content -->
+          <div class="dashboard-content">
+            <h2>Richieste di Preventivo</h2>
+
+            <div style="margin: 2rem 0; display: flex; gap: 1rem;">
+              <button class="btn btn--small" style="background: var(--primary-color); color: white;">Tutte</button>
+              <button class="btn btn--small btn--outline">Nuove</button>
+              <button class="btn btn--small btn--outline">Accettate</button>
+              <button class="btn btn--small btn--outline">Completate</button>
+            </div>
+
+            <!-- Requests List -->
+            <div style="display: grid; gap: 1.5rem;">
+              <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                  <div style="flex: 1;">
+                    <h3 style="margin: 0;">Progettazione Ristrutturazione Appartamento</h3>
+                    <p style="color: #666; margin: 0.5rem 0;">Da: Lucia Verdi</p>
+                    <p style="margin: 0.5rem 0; color: #999; font-size: 0.9rem;">Ricevuto: 28 Gennaio 2026</p>
+                  </div>
+                  <span style="background: #cfe2ff; color: #084298; padding: 6px 12px; border-radius: 4px; font-weight: 500;">Nuova</span>
+                </div>
+                <p style="margin: 1rem 0; color: #666;">Progettazione completa per ristrutturazione di appartamento a Roma zona EUR. Budget stimato: €30.000-€50.000</p>
+                <div style="margin: 1.5rem 0 0 0; padding-top: 1rem; border-top: 1px solid #eee;">
+                  <div style="display: flex; gap: 1rem;">
+                    <button class="btn btn--small btn--primary">Invia Preventivo</button>
+                    <button class="btn btn--small btn--outline">Richiedi Dettagli</button>
+                    <button class="btn btn--small btn--outline">Rifiuta</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                  <div style="flex: 1;">
+                    <h3 style="margin: 0;">Sopralluogo e Valutazione Strutturale</h3>
+                    <p style="color: #666; margin: 0.5rem 0;">Da: Studio XYZ Costruzioni</p>
+                    <p style="margin: 0.5rem 0; color: #999; font-size: 0.9rem;">Ricevuto: 26 Gennaio 2026</p>
+                  </div>
+                  <span style="background: #d4edda; color: #155724; padding: 6px 12px; border-radius: 4px; font-weight: 500;">Accettata</span>
+                </div>
+                <p style="margin: 1rem 0; color: #666;">Sopralluogo e relazione strutturale per edificio anni '70 a Milano</p>
+                <div style="margin: 1.5rem 0 0 0; padding-top: 1rem; border-top: 1px solid #eee;">
+                  <div style="display: flex; gap: 1rem;">
+                    <button class="btn btn--small btn--primary">Visualizza Dettagli</button>
+                    <button class="btn btn--small btn--outline">Contatta Cliente</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                  <div style="flex: 1;">
+                    <h3 style="margin: 0;">Consulenza Energetica</h3>
+                    <p style="color: #666; margin: 0.5rem 0;">Da: Marco Bianchi</p>
+                    <p style="margin: 0.5rem 0; color: #999; font-size: 0.9rem;">Ricevuto: 20 Gennaio 2026</p>
+                  </div>
+                  <span style="background: #f8d7da; color: #842029; padding: 6px 12px; border-radius: 4px; font-weight: 500;">Rifiutata</span>
+                </div>
+                <p style="margin: 1rem 0; color: #666;">Consulenza su efficienza energetica e certificazioni sostenibilità per complesso residenziale</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+  </div>
+
+  <script src="../../js/router.js"></script>
+  <script src="../../js/skyline.js"></script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

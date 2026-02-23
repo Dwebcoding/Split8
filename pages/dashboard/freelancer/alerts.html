@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alert · SPLit8</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <canvas id="skyline-canvas" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <!-- Navbar Component -->`n    <div id="navbar-placeholder"></div>
+
+    <section class="hero hero--compact">
+      <div class="hero__background">
+        <div class="hero__gradient"></div>
+        <div class="hero__grid"></div>
+      </div>
+      
+      <div class="hero__content">
+        <h1 class="hero__title">Alert e Notifiche</h1>
+      </div>
+    </section>
+
+    <main class="main">
+      <section class="section" style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 2rem;">
+          <!-- Sidebar Dashboard -->
+          <aside class="dashboard-sidebar">
+            <nav class="dashboard-nav">
+              <a href="index.html" class="dashboard-nav__link">Dashboard</a>
+              <a href="projects.html" class="dashboard-nav__link">Progetti</a>
+              <a href="requests.html" class="dashboard-nav__link">Richieste</a>
+              <a href="portfolio.html" class="dashboard-nav__link">Portfolio</a>
+              <a href="messages.html" class="dashboard-nav__link">Messaggi</a>
+              <a href="reviews.html" class="dashboard-nav__link">Valutazioni</a>
+              <a href="alerts.html" class="dashboard-nav__link active">Alert</a>
+              <a href="analytics.html" class="dashboard-nav__link">Analytics</a>
+              <a href="profile.html" class="dashboard-nav__link">Profilo</a>
+              <a href="../account.html" class="dashboard-nav__link">Account</a>
+            </nav>
+          </aside>
+
+          <!-- Content -->
+          <div class="dashboard-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+              <h2 style="margin: 0;">I Tuoi Alert Attivi</h2>
+              <button class="btn btn--primary">+ Nuovo Alert</button>
+            </div>
+
+            <div style="display: grid; gap: 1.5rem;">
+              <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                  <div>
+                    <h3 style="margin: 0;">Progetti Residenziali in Toscana</h3>
+                    <p style="color: #666; margin: 0.5rem 0;">Creato: 15 Gennaio 2026</p>
+                  </div>
+                  <span style="background: #d4edda; color: #155724; padding: 6px 12px; border-radius: 4px; font-weight: 500;">Attivo</span>
+                </div>
+                <p style="margin: 1rem 0; color: #666;">Ricevi notifiche per tutti i progetti residenziali in Toscana con budget > €50.000</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; padding: 1rem 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+                  <div>
+                    <p style="margin: 0; color: #999; font-size: 0.9rem;">Richieste Ricevute</p>
+                    <p style="margin: 0.5rem 0 0 0; font-weight: bold; font-size: 1.5rem;">8</p>
+                  </div>
+                  <div>
+                    <p style="margin: 0; color: #999; font-size: 0.9rem;">Frequenza Notifica</p>
+                    <p style="margin: 0.5rem 0 0 0; font-weight: bold;">Istantanea</p>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <button class="btn btn--small btn--primary" style="flex: 1;">Modifica</button>
+                  <button class="btn btn--small btn--outline" style="flex: 1;">Elimina</button>
+                </div>
+              </div>
+
+              <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                  <div>
+                    <h3 style="margin: 0;">Sopralluoghi in Lombardia</h3>
+                    <p style="color: #666; margin: 0.5rem 0;">Creato: 5 Gennaio 2026</p>
+                  </div>
+                  <span style="background: #d4edda; color: #155724; padding: 6px 12px; border-radius: 4px; font-weight: 500;">Attivo</span>
+                </div>
+                <p style="margin: 1rem 0; color: #666;">Alert per sopralluoghi tecnici e valutazioni strutturali in Lombardia</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; padding: 1rem 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+                  <div>
+                    <p style="margin: 0; color: #999; font-size: 0.9rem;">Richieste Ricevute</p>
+                    <p style="margin: 0.5rem 0 0 0; font-weight: bold; font-size: 1.5rem;">12</p>
+                  </div>
+                  <div>
+                    <p style="margin: 0; color: #999; font-size: 0.9rem;">Frequenza Notifica</p>
+                    <p style="margin: 0.5rem 0 0 0; font-weight: bold;">Giornaliera</p>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <button class="btn btn--small btn--primary" style="flex: 1;">Modifica</button>
+                  <button class="btn btn--small btn--outline" style="flex: 1;">Elimina</button>
+                </div>
+              </div>
+            </div>
+
+            <h2 style="margin-top: 3rem;">Come Funzionano gli Alert</h2>
+            <p>Gli alert ti permettono di ricevere notifiche automatiche per progetti che corrispondono ai tuoi criteri. Puoi creare alert per:</p>
+            <ul style="margin-left: 2rem;">
+              <li>Categoria di progetto</li>
+              <li>Area geografica</li>
+              <li>Range di budget</li>
+              <li>Specializzazioni richieste</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+  </div>
+
+  <script src="../../js/router.js"></script>
+  <script src="../../js/skyline.js"></script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

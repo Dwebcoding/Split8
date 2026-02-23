@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preventivi | SPLit8</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+  <canvas id="skyline-canvas"></canvas>
+  
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="logo">SPLit8</a>
+      <ul class="nav-menu">
+        <li><a href="/account">Account</a></li>
+        <li><a href="#" onclick="SPLit8.auth.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero hero--compact">
+    <div class="container">
+      <h1>Gestione Preventivi</h1>
+    </div>
+  </section>
+
+  <main class="container" style="margin: 4rem auto; max-width: 1400px;">
+    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+      
+      <aside class="dashboard-sidebar">
+        <nav class="dashboard-nav">
+          <a href="/pages/dashboard/studio/index.html">📊 Dashboard</a>
+          <a href="/pages/dashboard/studio/profile.html">🏢 Profilo Studio</a>
+          <a href="/pages/dashboard/studio/team.html">👥 Team</a>
+          <a href="/pages/dashboard/studio/projects.html">📁 Progetti</a>
+          <a href="/pages/dashboard/studio/quotes.html" class="active">💰 Preventivi</a>
+          <a href="/pages/dashboard/studio/partners.html">🤝 Partner</a>
+        </nav>
+      </aside>
+
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+          <div style="display: flex; gap: 1rem;">
+            <button class="btn--primary active">Tutti (15)</button>
+            <button class="btn--outline">In Attesa (5)</button>
+            <button class="btn--outline">Accettati (8)</button>
+            <button class="btn--outline">Rifiutati (2)</button>
+          </div>
+          <button class="btn--primary">+ Nuovo Preventivo</button>
+        </div>
+
+        <div style="display: grid; gap: 1.5rem;">
+          
+          <div class="card">
+            <div style="display: flex; justify-content: between; align-items: start; margin-bottom: 1rem;">
+              <div style="flex: 1;">
+                <h3 style="margin: 0 0 0.5rem 0;">Preventivo #2025-042</h3>
+                <p style="margin: 0; color: #888;">Richiesta da Famiglia Rossi · Progettazione residenziale</p>
+              </div>
+              <span class="badge" style="padding: 0.5rem 1rem; background: rgba(255,159,67,0.2); color: #ff9f43; border-radius: 20px;">In Attesa</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Importo</p>
+                <p style="margin: 0.25rem 0 0 0; font-weight: bold; font-size: 1.25rem;">€28.500</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Inviato</p>
+                <p style="margin: 0.25rem 0 0 0;">18 Apr 2025</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Validità</p>
+                <p style="margin: 0.25rem 0 0 0;">30 giorni</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+              <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Visualizza</button>
+              <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Modifica</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+              <div style="flex: 1;">
+                <h3 style="margin: 0 0 0.5rem 0;">Preventivo #2025-041</h3>
+                <p style="margin: 0; color: #888;">Richiesta da Studio XYZ · Progetto commerciale</p>
+              </div>
+              <span class="badge" style="padding: 0.5rem 1rem; background: rgba(46,213,115,0.2); color: #2ed573; border-radius: 20px;">Accettato</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Importo</p>
+                <p style="margin: 0.25rem 0 0 0; font-weight: bold; font-size: 1.25rem;">€65.000</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Accettato</p>
+                <p style="margin: 0.25rem 0 0 0;">10 Apr 2025</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Progetto Creato</p>
+                <p style="margin: 0.25rem 0 0 0;">12 Apr 2025</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+              <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Vai al Progetto</button>
+              <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Visualizza Preventivo</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+              <div style="flex: 1;">
+                <h3 style="margin: 0 0 0.5rem 0;">Preventivo #2025-038</h3>
+                <p style="margin: 0; color: #888;">Richiesta da Sig. Moretti · Ristrutturazione</p>
+              </div>
+              <span class="badge" style="padding: 0.5rem 1rem; background: rgba(234,84,85,0.2); color: #ea5455; border-radius: 20px;">Rifiutato</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Importo</p>
+                <p style="margin: 0.25rem 0 0 0; font-weight: bold; font-size: 1.25rem;">€42.000</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Rifiutato</p>
+                <p style="margin: 0.25rem 0 0 0;">5 Apr 2025</p>
+              </div>
+              <div>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;">Motivo</p>
+                <p style="margin: 0.25rem 0 0 0;">Budget insufficiente</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+              <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Visualizza</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+
+  <script src="../../../js/router.js"></script>
+  <script src="../../../js/skyline.js"></script>
+  <script src="../../../js/api.js"></script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

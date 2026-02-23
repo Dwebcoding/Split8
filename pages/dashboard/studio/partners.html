@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner e Collaboratori | SPLit8</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+  <canvas id="skyline-canvas"></canvas>
+  
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="logo">SPLit8</a>
+      <ul class="nav-menu">
+        <li><a href="/account">Account</a></li>
+        <li><a href="#" onclick="SPLit8.auth.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero hero--compact">
+    <div class="container">
+      <h1>Partner e Collaboratori</h1>
+    </div>
+  </section>
+
+  <main class="container" style="margin: 4rem auto; max-width: 1400px;">
+    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+      
+      <aside class="dashboard-sidebar">
+        <nav class="dashboard-nav">
+          <a href="/pages/dashboard/studio/index.html">📊 Dashboard</a>
+          <a href="/pages/dashboard/studio/profile.html">🏢 Profilo Studio</a>
+          <a href="/pages/dashboard/studio/team.html">👥 Team</a>
+          <a href="/pages/dashboard/studio/projects.html">📁 Progetti</a>
+          <a href="/pages/dashboard/studio/quotes.html">💰 Preventivi</a>
+          <a href="/pages/dashboard/studio/partners.html" class="active">🤝 Partner</a>
+        </nav>
+      </aside>
+
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+          <h2 style="margin: 0;">Network di Partner (8)</h2>
+          <button class="btn--primary">+ Aggiungi Partner</button>
+        </div>
+
+        <div style="display: grid; gap: 1.5rem;">
+          
+          <div class="card">
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+              <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">
+                🏗️
+              </div>
+              <div style="flex: 1;">
+                <h3 style="margin: 0 0 0.5rem 0;">Impresa Edile Costruzioni S.r.l.</h3>
+                <p style="margin: 0 0 0.5rem 0; color: #888;">Impresa edile · Costruzioni e ristrutturazioni</p>
+                <div style="display: flex; gap: 2rem; font-size: 0.9rem;">
+                  <span>⭐ 4.7/5 (18 valutazioni)</span>
+                  <span>📁 12 collaborazioni</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Contatta</button>
+                <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Profilo</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+              <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">
+                ⚡
+              </div>
+              <div style="flex: 1;">
+                <h3 style="margin: 0 0 0.5rem 0;">Studio Tecnico Impianti</h3>
+                <p style="margin: 0 0 0.5rem 0; color: #888;">Ingegneria impiantistica · Progettazione impianti</p>
+                <div style="display: flex; gap: 2rem; font-size: 0.9rem;">
+                  <span>⭐ 4.9/5 (24 valutazioni)</span>
+                  <span>📁 18 collaborazioni</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Contatta</button>
+                <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Profilo</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+              <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">
+                🌿
+              </div>
+              <div style="flex: 1;">
+                <h3 style="margin: 0 0 0.5rem 0;">Verde Urbano Paesaggistica</h3>
+                <p style="margin: 0 0 0.5rem 0; color: #888;">Paesaggista · Progettazione giardini e spazi verdi</p>
+                <div style="display: flex; gap: 2rem; font-size: 0.9rem;">
+                  <span>⭐ 4.6/5 (14 valutazioni)</span>
+                  <span>📁 8 collaborazioni</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Contatta</button>
+                <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Profilo</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+              <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">
+                🔧
+              </div>
+              <div style="flex: 1;">
+                <h3 style="margin: 0 0 0.5rem 0;">Ristrutturazioni Rapide Milano</h3>
+                <p style="margin: 0 0 0.5rem 0; color: #888;">Impresa edile specializzata · Ristrutturazioni chiavi in mano</p>
+                <div style="display: flex; gap: 2rem; font-size: 0.9rem;">
+                  <span>⭐ 4.8/5 (31 valutazioni)</span>
+                  <span>📁 15 collaborazioni</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="btn--primary" style="padding: 0.5rem 1.5rem;">Contatta</button>
+                <button class="btn--outline" style="padding: 0.5rem 1.5rem;">Profilo</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+
+  <script src="../../../js/router.js"></script>
+  <script src="../../../js/skyline.js"></script>
+  <script src="../../../js/api.js"></script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

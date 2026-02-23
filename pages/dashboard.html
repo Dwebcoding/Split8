@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPLit8 - Dashboard</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <canvas id="skyline-canvas" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <!-- Navbar Component -->`n    <div id="navbar-placeholder"></div>
+
+    <section class="hero hero--compact">
+      <div class="hero__content">
+        <p class="hero__eyebrow" id="dashboardEyebrow">Dashboard</p>
+        <h2 class="hero__title" id="dashboardTitle">Panoramica operativa e KPI della settimana.</h2>
+        <p class="hero__subtitle" id="dashboardSubtitle">Gestisci lavori, team e messaggi in un'unica vista.</p>
+      </div>
+    </section>
+
+    <main class="content page-grid">
+      <!-- KPI Section -->
+      <section class="card">
+        <header class="card__header">
+          <h2>KPI principali</h2>
+          <p id="kpiDesc">Indicatori aggiornati in tempo reale.</p>
+        </header>
+        <div class="section-grid" id="kpiContainer">
+          <article class="card card--compact">
+            <span class="pill" id="kpi1Title">Inserzioni</span>
+            <h3 id="kpi1Value">12 attive</h3>
+            <p class="muted" id="kpi1Sub">+3 questa settimana</p>
+          </article>
+          <article class="card card--compact">
+            <span class="pill" id="kpi2Title">Candidature</span>
+            <h3 id="kpi2Value">28 ricevute</h3>
+            <p class="muted" id="kpi2Sub">Tasso risposta 86%</p>
+          </article>
+          <article class="card card--compact">
+            <span class="pill" id="kpi3Title">Messaggi</span>
+            <h3 id="kpi3Value">9 in attesa</h3>
+            <p class="muted" id="kpi3Sub">Risposta media 2h</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Features Section (Dynamic based on role) -->
+      <section class="card" id="featuresSection" style="display: none;">
+        <header class="card__header">
+          <h2 id="featuresTitle">Funzioni principali</h2>
+          <p id="featuresDesc">Strumenti specifici per il tuo profilo.</p>
+        </header>
+        <div class="features-grid" id="featuresGrid"></div>
+      </section>
+
+      <!-- Activity Section -->
+      <section class="card">
+        <header class="card__header">
+          <h2>Attività recenti</h2>
+          <p>Ultimi aggiornamenti del team.</p>
+        </header>
+        <ul class="list-compact" id="activityList">
+          <li>Nuova candidatura: Rilievo strutturale · Milano</li>
+          <li>Messaggio ricevuto da GeoLab Pro</li>
+          <li>Inserzione aggiornata: Perizia impianti · Roma</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+  </div>
+
+  <div class="auth-modal" id="authModal" aria-hidden="true" role="dialog" aria-label="Iscrizione utenti">
+    <div class="auth-modal__panel">
+      <button class="panel__close" id="closeAuth" aria-label="Chiudi iscrizione">✕</button>
+      <div class="auth-modal__header">
+        <h3>Iscrizione / Accesso</h3>
+        <p>Crea il tuo profilo professionale o accedi con le credenziali salvate.</p>
+      </div>
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab is-active" data-auth-mode="register">Iscriviti</button>
+        <button type="button" class="auth-tab" data-auth-mode="login">Accedi</button>
+      </div>
+      <form id="authForm" class="auth-form" novalidate>
+        <label class="field">
+          <span>Nome completo *</span>
+          <input type="text" name="fullName" placeholder="Es. Luca Bianchi" required />
+          <small class="error"></small>
+        </label>
+        <label class="field">
+          <span>Email *</span>
+          <input type="email" name="email" placeholder="nome@studio.it" required />
+          <small class="error"></small>
+        </label>
+        <label class="field">
+          <span>Password *</span>
+          <input type="password" name="password" placeholder="Min. 6 caratteri" required />
+          <small class="error"></small>
+        </label>
+        <div class="actions">
+          <button type="submit" class="btn">Salva profilo</button>
+          <button type="button" class="btn btn--ghost" id="authLogout">Esci</button>
+        </div>
+        <p class="muted" id="authStatus"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+  <script>
+    // Dashboard personalization based on user role
+    document.addEventListener("DOMContentLoaded", async () => {
+      // Check auth
+      const token = localStorage.getItem("split8:token");
+      if (!token) {
+        window.location.href = "signup.html";
+        return;
+      }
+
+      const userStr = localStorage.getItem("split8:user");
+      const user = userStr ? JSON.parse(userStr) : null;
+      
+      // Fetch full user data to get role
+      try {
+        const response = await apiRequest("/api/me", { method: "GET" });
+        const role = response.user?.role || "freelancer"; // Default to freelancer
+        
+        // Update dashboard based on role
+        if (role === "studio") {
+          updateStudioDashboard();
+        } else {
+          updateFreelancerDashboard();
+        }
+      } catch (err) {
+        console.error("Error fetching user data:", err);
+        updateFreelancerDashboard(); // Default
+      }
+    });
+
+    function updateFreelancerDashboard() {
+      // Freelancer-specific KPIs
+      document.getElementById("dashboardTitle").textContent = "Dashboard Freelancer";
+      document.getElementById("dashboardSubtitle").textContent = "Gestisci le tue candidature e progetti personali.";
+      
+      document.getElementById("kpi1Title").textContent = "Progetti";
+      document.getElementById("kpi1Value").textContent = "8 attivi";
+      document.getElementById("kpi1Sub").textContent = "+2 questa settimana";
+      
+      document.getElementById("kpi2Title").textContent = "Candidature";
+      document.getElementById("kpi2Value").textContent = "15 inviate";
+      document.getElementById("kpi2Sub").textContent = "3 accettate";
+      
+      document.getElementById("kpi3Title").textContent = "Compenso";
+      document.getElementById("kpi3Value").textContent = "€4,200";
+      document.getElementById("kpi3Sub").textContent = "Fatturato questo mese";
+      
+      // Features
+      renderFreelancerFeatures();
+      
+      // Activity
+      document.getElementById("activityList").innerHTML = `
+        <li>Candidatura accettata: Stima energetica · Torino</li>
+        <li>Pagamento ricevuto da Studio Delta</li>
+        <li>Nuovo messaggio da Marco Rossi</li>
+        <li>Completa il tuo profilo (80%)</li>
+      `;
+    }
+
+    function updateStudioDashboard() {
+      // Studio-specific KPIs
+      document.getElementById("dashboardTitle").textContent = "Dashboard Studio Tecnico";
+      document.getElementById("dashboardSubtitle").textContent = "Gestisci inserzioni, team e collaborazioni.";
+      
+      document.getElementById("kpi1Title").textContent = "Inserzioni";
+      document.getElementById("kpi1Value").textContent = "28 attive";
+      document.getElementById("kpi1Sub").textContent = "+5 questa settimana";
+      
+      document.getElementById("kpi2Title").textContent = "Team";
+      document.getElementById("kpi2Value").textContent = "12 professionisti";
+      document.getElementById("kpi2Sub").textContent = "9 in progetto";
+      
+      document.getElementById("kpi3Title").textContent = "Candidature";
+      document.getElementById("kpi3Value").textContent = "156 ricevute";
+      document.getElementById("kpi3Sub").textContent = "Tasso risposta 92%";
+      
+      // Features
+      renderStudioFeatures();
+      
+      // Activity
+      document.getElementById("activityList").innerHTML = `
+        <li>Nuova candidatura: Perizia statica · Roma</li>
+        <li>Team member aggiunto: Ing. Sofia Martini</li>
+        <li>Inserzione raggiunta 450 visualizzazioni</li>
+        <li>Progetto concluso: Rilievo architettonico</li>
+      `;
+    }
+
+    function renderFreelancerFeatures() {
+      const section = document.getElementById("featuresSection");
+      const grid = document.getElementById("featuresGrid");
+      
+      section.style.display = "block";
+      document.getElementById("featuresTitle").textContent = "Strumenti Freelancer";
+      document.getElementById("featuresDesc").textContent = "Massimizza le tue opportunità e visibilità.";
+      
+      grid.innerHTML = `
+        <div class="feature">
+          <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 11l3 3L22 4"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <h3>Candidature</h3>
+          <p>Traccia tutte le tue candidature e stati.</p>
+        </div>
+        <div class="feature">
+          <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 8c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zm0 2c-1.657 0-3 1.343-3 3v8h6v-8c0-1.657-1.343-3-3-3z"/><path d="M5 18h14"/>
+          </svg>
+          <h3>Profilo Pubblico</h3>
+          <p>Gestisci la tua reputazione e portfolio.</p>
+        </div>
+        <div class="feature">
+          <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>
+          </svg>
+          <h3>Miei Progetti</h3>
+          <p>Visualizza tutti i tuoi lavori e progressi.</p>
+        </div>
+        <div class="feature">
+          <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z"/>
+          </svg>
+          <h3>Tariffe</h3>
+          <p>Imposta e gestisci i tuoi prezzi.</p>
+        </div>
+        <div class="feature">
+          <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <h3>Valutazioni</h3>
+          <p>Visualizza feedback e recensioni ricevute.</p>
+        </div>
+      `;
+    }
+
+    function renderStudioFeatures() {
+      const section = document.getElementById("featuresSection");
+      const grid = document.getElementById("featuresGrid");
+      
+      section.style.display = "block";
+      document.getElementById("featuresTitle").textContent = "Strumenti Studio";
+      document.getElementById("featuresDesc").textContent = "Gestione completa di team, progetti e candidature.";
+      
+      grid.innerHTML = `
+        <div class="feature">
+          <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <h3>Gestione Team</h3>
+          <p>Aggiungi, organizza e assegna risorse.</p>
+        </div>
+        <div class="feature">
+          <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+          </svg>
+          <h3>Progetti Attivi</h3>
+          <p>Monitora milestone e avanzamento lavori.</p>
+        </div>
+        <div class="feature">
+          <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/>
+          </svg>
+          <h3>Report Mensili</h3>
+          <p>Genera report su candidature e fatturato.</p>
+        </div>
+        <div class="feature">
+          <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <h3>Analisi Dati</h3>
+          <p>Dashboard con metriche e insights.</p>
+        </div>
+        <div class="feature">
+          <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <h3>Messaggistica Team</h3>
+          <p>Comunica con il tuo team interno ed esterno.</p>
+        </div>
+        <div class="feature">
+          <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11z"/>
+          </svg>
+          <h3>Impostazioni</h3>
+          <p>Configura preferenze e autorizzazioni.</p>
+        </div>
+      `;
+    }
+  </script>

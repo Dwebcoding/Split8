@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPLit8 - Contatti</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <canvas id="skyline-canvas" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <!-- Navbar Component -->`n    <div id="navbar-placeholder"></div>
+
+    <section class="hero hero--compact">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Contatti</p>
+        <h2 class="hero__title">Parliamo del tuo prossimo progetto.</h2>
+        <p class="hero__subtitle">Ricevi una consulenza dedicata per flussi di lavoro avanzati.</p>
+      </div>
+    </section>
+
+    <main class="content page-grid">
+      <section class="card">
+        <header class="card__header">
+          <h2>Scrivici</h2>
+          <p>Il team SPLit8 risponde entro 24 ore.</p>
+        </header>
+        <div class="two-col">
+          <label class="field">
+            <span>Nome</span>
+            <input type="text" placeholder="Nome e cognome" />
+          </label>
+          <label class="field">
+            <span>Email</span>
+            <input type="email" placeholder="nome@studio.it" />
+          </label>
+        </div>
+        <label class="field">
+          <span>Messaggio</span>
+          <input type="text" placeholder="Descrivi la tua richiesta" />
+        </label>
+        <div class="actions">
+          <button class="btn">Invia</button>
+          <button class="btn btn--ghost">Allega file</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <header class="card__header">
+          <h2>Informazioni</h2>
+          <p>Canali diretti per aziende e professionisti.</p>
+        </header>
+        <ul class="list-compact">
+          <li>Email: support@split8.it</li>
+          <li>Telefono: +39 02 0000 000</li>
+          <li>Milano · Roma · Torino</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+  </div>
+
+  <div class="auth-modal" id="authModal" aria-hidden="true" role="dialog" aria-label="Iscrizione utenti">
+    <div class="auth-modal__panel">
+      <button class="panel__close" id="closeAuth" aria-label="Chiudi iscrizione">✕</button>
+      <div class="auth-modal__header">
+        <h3>Iscrizione / Accesso</h3>
+        <p>Crea il tuo profilo professionale o accedi con le credenziali salvate.</p>
+      </div>
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab is-active" data-auth-mode="register">Iscriviti</button>
+        <button type="button" class="auth-tab" data-auth-mode="login">Accedi</button>
+      </div>
+      <form id="authForm" class="auth-form" novalidate>
+        <label class="field">
+          <span>Nome completo *</span>
+          <input type="text" name="fullName" placeholder="Es. Luca Bianchi" required />
+          <small class="error"></small>
+        </label>
+        <label class="field">
+          <span>Email *</span>
+          <input type="email" name="email" placeholder="nome@studio.it" required />
+          <small class="error"></small>
+        </label>
+        <label class="field">
+          <span>Password *</span>
+          <input type="password" name="password" placeholder="Min. 6 caratteri" required />
+          <small class="error"></small>
+        </label>
+        <div class="actions">
+          <button type="submit" class="btn">Salva profilo</button>
+          <button type="button" class="btn btn--ghost" id="authLogout">Esci</button>
+        </div>
+        <p class="muted" id="authStatus"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/router.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/footer.js"></script>
+</body>
+</html>

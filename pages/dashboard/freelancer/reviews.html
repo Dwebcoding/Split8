@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Valutazioni · SPLit8</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <canvas id="skyline-canvas" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <!-- Navbar Component -->`n    <div id="navbar-placeholder"></div>
+
+    <section class="hero hero--compact">
+      <div class="hero__background">
+        <div class="hero__gradient"></div>
+        <div class="hero__grid"></div>
+      </div>
+      
+      <div class="hero__content">
+        <h1 class="hero__title">Valutazioni Ricevute</h1>
+      </div>
+    </section>
+
+    <main class="main">
+      <section class="section" style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 2rem;">
+          <!-- Sidebar Dashboard -->
+          <aside class="dashboard-sidebar">
+            <nav class="dashboard-nav">
+              <a href="index.html" class="dashboard-nav__link">Dashboard</a>
+              <a href="projects.html" class="dashboard-nav__link">Progetti</a>
+              <a href="requests.html" class="dashboard-nav__link">Richieste</a>
+              <a href="portfolio.html" class="dashboard-nav__link">Portfolio</a>
+              <a href="messages.html" class="dashboard-nav__link">Messaggi</a>
+              <a href="reviews.html" class="dashboard-nav__link active">Valutazioni</a>
+              <a href="alerts.html" class="dashboard-nav__link">Alert</a>
+              <a href="analytics.html" class="dashboard-nav__link">Analytics</a>
+              <a href="profile.html" class="dashboard-nav__link">Profilo</a>
+              <a href="../account.html" class="dashboard-nav__link">Account</a>
+            </nav>
+          </aside>
+
+          <!-- Content -->
+          <div class="dashboard-content">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 3rem;">
+              <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                <p style="margin: 0; color: #999; font-size: 0.9rem;">Valutazione Media</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 2rem; font-weight: bold;">4.8</p>
+                <p style="margin: 0.5rem 0 0 0; color: #ffc107;">★★★★★</p>
+              </div>
+              <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                <p style="margin: 0; color: #999; font-size: 0.9rem;">Totale Valutazioni</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 2rem; font-weight: bold;">24</p>
+              </div>
+              <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                <p style="margin: 0; color: #999; font-size: 0.9rem;">Tasso Positività</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 2rem; font-weight: bold;">96%</p>
+              </div>
+            </div>
+
+            <h2>Ultime Valutazioni</h2>
+            <div style="display: grid; gap: 1.5rem; margin-top: 1rem;">
+              <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                  <div>
+                    <p style="margin: 0; font-weight: 600;">Lucia Verdi</p>
+                    <p style="margin: 0.5rem 0 0 0; color: #ffc107;">★★★★★</p>
+                  </div>
+                  <p style="margin: 0; color: #999; font-size: 0.9rem;">28 Gennaio 2026</p>
+                </div>
+                <p style="margin: 1rem 0 0 0; color: #666;">"Lavoro eccellente! Mario è molto professionale e ha consigliato soluzioni innovative. Lo ricontatterò per il prossimo progetto."</p>
+                <p style="margin: 0.5rem 0 0 0; color: #999; font-size: 0.9rem;">Progetto: Ristrutturazione Appartamento</p>
+              </div>
+
+              <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                  <div>
+                    <p style="margin: 0; font-weight: 600;">Studio XYZ</p>
+                    <p style="margin: 0.5rem 0 0 0; color: #ffc107;">★★★★☆</p>
+                  </div>
+                  <p style="margin: 0; color: #999; font-size: 0.9rem;">15 Gennaio 2026</p>
+                </div>
+                <p style="margin: 1rem 0 0 0; color: #666;">"Competente e puntuale. Avremmo apprezzato più follow-up durante il progetto, ma il risultato finale è ottimo."</p>
+                <p style="margin: 0.5rem 0 0 0; color: #999; font-size: 0.9rem;">Progetto: Sopralluogo Strutturale</p>
+              </div>
+
+              <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                  <div>
+                    <p style="margin: 0; font-weight: 600;">Marco Bianchi</p>
+                    <p style="margin: 0.5rem 0 0 0; color: #ffc107;">★★★★★</p>
+                  </div>
+                  <p style="margin: 0; color: #999; font-size: 0.9rem;">8 Gennaio 2026</p>
+                </div>
+                <p style="margin: 1rem 0 0 0; color: #666;">"Perfetto! Tutto consegnato in tempo e con qualità superiore. Consigliato!"</p>
+                <p style="margin: 0.5rem 0 0 0; color: #999; font-size: 0.9rem;">Progetto: Consulenza Energetica</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+  </div>
+
+  <script src="../../js/router.js"></script>
+  <script src="../../js/skyline.js"></script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestione Team | SPLit8</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+  <canvas id="skyline-canvas"></canvas>
+  
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="logo">SPLit8</a>
+      <ul class="nav-menu">
+        <li><a href="/account">Account</a></li>
+        <li><a href="#" onclick="SPLit8.auth.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero hero--compact">
+    <div class="container">
+      <h1>Gestione Team</h1>
+    </div>
+  </section>
+
+  <main class="container" style="margin: 4rem auto; max-width: 1400px;">
+    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+      
+      <aside class="dashboard-sidebar">
+        <nav class="dashboard-nav">
+          <a href="/pages/dashboard/studio/index.html">📊 Dashboard</a>
+          <a href="/pages/dashboard/studio/profile.html">🏢 Profilo Studio</a>
+          <a href="/pages/dashboard/studio/team.html" class="active">👥 Team</a>
+          <a href="/pages/dashboard/studio/projects.html">📁 Progetti</a>
+          <a href="/pages/dashboard/studio/quotes.html">💰 Preventivi</a>
+          <a href="/pages/dashboard/studio/partners.html">🤝 Partner</a>
+        </nav>
+      </aside>
+
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+          <h2 style="margin: 0;">Membri del Team (7)</h2>
+          <button class="btn--primary">+ Invita Membro</button>
+        </div>
+
+        <div style="display: grid; gap: 1.5rem;">
+          
+          <!-- Team Member Card -->
+          <div class="card" style="padding: 1.5rem;">
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+              <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; font-weight: bold;">
+                MB
+              </div>
+              <div style="flex: 1;">
+                <h3 style="margin: 0 0 0.25rem 0;">Marco Bianchi</h3>
+                <p style="margin: 0; color: #888;">Architetto Senior · marco.bianchi@studiomilano.it</p>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <span class="badge" style="padding: 0.5rem 1rem; background: rgba(255,159,67,0.2); color: #ff9f43; border-radius: 20px;">Admin</span>
+                <button class="btn--outline" style="padding: 0.5rem 1rem;">Gestisci</button>
+              </div>
+            </div>
+            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 2rem; font-size: 0.9rem; color: #888;">
+              <span>📁 8 Progetti attivi</span>
+              <span>📅 Dal 2018</span>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+              <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; font-weight: bold;">
+                LV
+              </div>
+              <div style="flex: 1;">
+                <h3 style="margin: 0 0 0.25rem 0;">Lucia Verdi</h3>
+                <p style="margin: 0; color: #888;">Project Manager · lucia.verdi@studiomilano.it</p>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <span class="badge" style="padding: 0.5rem 1rem; background: rgba(46,213,115,0.2); color: #2ed573; border-radius: 20px;">Manager</span>
+                <button class="btn--outline" style="padding: 0.5rem 1rem;">Gestisci</button>
+              </div>
+            </div>
+            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 2rem; font-size: 0.9rem; color: #888;">
+              <span>📁 12 Progetti attivi</span>
+              <span>📅 Dal 2020</span>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+              <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; font-weight: bold;">
+                GN
+              </div>
+              <div style="flex: 1;">
+                <h3 style="margin: 0 0 0.25rem 0;">Giovanni Neri</h3>
+                <p style="margin: 0; color: #888;">Architetto · giovanni.neri@studiomilano.it</p>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <span class="badge" style="padding: 0.5rem 1rem; background: rgba(108,117,125,0.2); color: #aaa; border-radius: 20px;">Member</span>
+                <button class="btn--outline" style="padding: 0.5rem 1rem;">Gestisci</button>
+              </div>
+            </div>
+            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 2rem; font-size: 0.9rem; color: #888;">
+              <span>📁 5 Progetti attivi</span>
+              <span>📅 Dal 2021</span>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+              <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; font-weight: bold;">
+                SF
+              </div>
+              <div style="flex: 1;">
+                <h3 style="margin: 0 0 0.25rem 0;">Sara Ferretti</h3>
+                <p style="margin: 0; color: #888;">Interior Designer · sara.ferretti@studiomilano.it</p>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <span class="badge" style="padding: 0.5rem 1rem; background: rgba(108,117,125,0.2); color: #aaa; border-radius: 20px;">Member</span>
+                <button class="btn--outline" style="padding: 0.5rem 1rem;">Gestisci</button>
+              </div>
+            </div>
+            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 2rem; font-size: 0.9rem; color: #888;">
+              <span>📁 6 Progetti attivi</span>
+              <span>📅 Dal 2022</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer Component -->`n    <div id="footer-placeholder"></div>
+
+  <script src="../../../js/router.js"></script>
+  <script src="../../../js/skyline.js"></script>
+  <script src="../../../js/api.js"></script>
+  <script src="../../../js/navbar.js"></script>
+  <script src="../../../js/footer.js"></script>
+</body>
+</html>
